@@ -9,10 +9,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.plane_id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.plane_model_name)
+            @Html.DisplayNameFor(model => model.id)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.avg_passenger_capacity)
@@ -34,10 +31,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.plane_id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.plane_model_name)
+            @Html.DisplayFor(modelItem => item.id)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.avg_passenger_capacity)
