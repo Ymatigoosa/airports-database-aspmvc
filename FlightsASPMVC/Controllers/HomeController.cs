@@ -13,9 +13,8 @@ namespace FlightsASPMVC.Controllers
             return RedirectToAction("Index", "SortiesInMonth");
         }
 
-        public ActionResult About()
+        public ActionResult Administer()
         {
-            ViewBag.Message = "Your application description page.";
 
             return View();
         }

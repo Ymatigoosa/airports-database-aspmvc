@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Administer";
+}
+
+<ul>
+    <li>
+        <span>Tables</span>
+        <ul>
+            <li>@Html.ActionLink("Airline", "Index", "Airline")</li>
+            <li>@Html.ActionLink("Airports", "Index", "Airport")</li>
+            <li>@Html.ActionLink("Baggage", "Index", "Baggage")</li>
+            <li>@Html.ActionLink("Brigade", "Index", "Brigade")</li>
+            <li>@Html.ActionLink("City", "Index", "City")</li>
+            <li>@Html.ActionLink("Country", "Index", "Country")</li>
+            <li>@Html.ActionLink("Department", "Index", "Department")</li>
+            <li>@Html.ActionLink("Employee", "Index", "Employee")</li>
+            <li>@Html.ActionLink("EmployeeType", "Index", "EmployeeType")</li>
+            <li>@Html.ActionLink("Plane", "Index", "Plane")</li>
+            <li>@Html.ActionLink("Plane Model", "Index", "PlaneModel")</li>
+            <li>@Html.ActionLink("Registration", "Index", "Registration")</li>
+            <li>@Html.ActionLink("Ticket", "Index", "Ticket")</li>
+            <li>@Html.ActionLink("Passanger", "Index", "Passanger")</li>
+            <li>@Html.ActionLink("Plane Repairs", "Index", "PlaneRepairs")</li>
+            <li>@Html.ActionLink("Plane Repairs Ended", "Index", "PlaneRepairsEnded")</li>
+            <li>@Html.ActionLink("Plane Inspections", "Index", "PlaneInspections")</li>
+            <li>@Html.ActionLink("Plane Inspections Ended", "Index", "PlaneInspectionsEnded")</li>
+            <li>@Html.ActionLink("Flight Class", "Index", "FlightClass")</li>
+            <li>@Html.ActionLink("Flight", "Index", "Flight")</li>
+            <li>@Html.ActionLink("Sortie", "Index", "Sortie")</li>
+            <li>@Html.ActionLink("Landing", "Index", "Landing")</li>
+        </ul>
+    </li>
+    <li>
+        <span>Views</span>
+        <ul>
+            <li>@Html.ActionLink("Brigade List", "Index", "BrigadeListView")</li>
+            <li>@Html.ActionLink("Department info", "Index", "DepartmentView")</li>
+            <li>@Html.ActionLink("Employee List", "Index", "EmployeeListView")</li>
+            <li>@Html.ActionLink("Pilots With Medical Examination", "Index", "PilotsWithMedicalExaminationView")</li>
+            <li>@Html.ActionLink("Pilots Without Medical Examination", "Index", "PilotsWithoutMedicalExaminationView")</li>
+            <li>@Html.ActionLink("Airline Stats", "Index", "AirlineStats")</li>
+            <li>@Html.ActionLink("Flight Class Stats", "Index", "FlightClassStats")</li>
+            <li>@Html.ActionLink("Plane Info", "Index", "PlaneInfoView")</li>
+            <li>@Html.ActionLink("Sorties With Passangers", "Index", "SortiesWithPassangers")</li>
+            <li>@Html.ActionLink("Plane Info", "Index", "PlaneInfoView")</li>
+            <li>@Html.ActionLink("Flights In Month", "Index", "SortiesInMonth")</li>
+            <li>@Html.ActionLink("Flight Info", "Index", "FlightInfoView")</li>
+            <li>@Html.ActionLink("Flight In A Day", "Index", "FlightInADayView")</li>
+            <li>@Html.ActionLink("Delayed Landings", "Index", "DelayedLandingsView")</li>
+            <li>@Html.ActionLink("Plane View", "Index", "PlaneView")</li>
+        </ul>
+    </li>
+    <li>
+        <span>Dispatcher panel</span>
+        <ul>
+            <li>@Html.ActionLink("Add Flight (Manually)", "FlightAdd", "Procedures")</li>
+            <li>@Html.ActionLink("Generate Flight", "FlightGenerateNext", "Procedures")</li>
+            <li>@Html.ActionLink("Change Plane", "FlightChangePlane", "Procedures")</li>
+            <li>@Html.ActionLink("Change Team", "FlightChangeTeam", "Procedures")</li>
+            <li>@Html.ActionLink("Register Landing", "FlightLandingDo", "Procedures")</li>
+            <li>@Html.ActionLink("Move Landing", "FlightLandingMove", "Procedures")</li>
+            <li>@Html.ActionLink("Register Sortie", "FlightSortieDo", "Procedures")</li>
+            <li>@Html.ActionLink("Move Sortie", "FlightSortieMove", "Procedures")</li>
+            <li>@Html.ActionLink("Cancel Sortie", "FlightSortieCancel", "Procedures")</li>
+        </ul>
+    </li>
+</ul>

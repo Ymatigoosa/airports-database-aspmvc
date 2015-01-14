@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Airports managenet center</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -22,119 +22,108 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    @if (Request.IsAuthenticated)
-                    {
-                        var un = User.Identity.GetUserName();
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tables<span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                @if (un == "root")
-                                {
-                                    <li role="presentation" class="dropdown-header">root</li>
-                                    <li>@Html.ActionLink("Airline", "Index", "Airline")</li>
-                                    <li>@Html.ActionLink("Airports", "Index", "Airport")</li>
-                                    <li>@Html.ActionLink("Baggage", "Index", "Baggage")</li>
-                                    <li>@Html.ActionLink("Brigade", "Index", "Brigade")</li>
-                                    <li>@Html.ActionLink("City", "Index", "City")</li>
-                                    <li>@Html.ActionLink("Country", "Index", "Country")</li>
-                                    <li>@Html.ActionLink("Department", "Index", "Department")</li>
-                                    <li>@Html.ActionLink("Employee", "Index", "Employee")</li>
-                                    <li>@Html.ActionLink("EmployeeType", "Index", "EmployeeType")</li>
-                                    <li>@Html.ActionLink("Plane", "Index", "Plane")</li>
-                                    <li>@Html.ActionLink("Plane Model", "Index", "PlaneModel")</li>
-                                }
-                                @if (un == "root" || un == "seller")
-                                {
-                                    <li role="presentation" class="dropdown-header">seller</li>
-                                    <li>@Html.ActionLink("Registration", "Index", "Registration")</li>
-                                    <li>@Html.ActionLink("Ticket", "Index", "Ticket")</li>
-                                    <li>@Html.ActionLink("Passanger", "Index", "Passanger")</li>
-                                }
-                                @if (un == "root" || un == "technician")
-                                {
-                                    <li role="presentation" class="dropdown-header">technician</li>
-                                    <li>@Html.ActionLink("Plane Repairs", "Index", "PlaneRepairs")</li>
-                                    <li>@Html.ActionLink("Plane Repairs Ended", "Index", "PlaneRepairsEnded")</li>
-                                    <li>@Html.ActionLink("Plane Inspections", "Index", "PlaneInspections")</li>
-                                    <li>@Html.ActionLink("Plane Inspections Ended", "Index", "PlaneInspectionsEnded")</li>
-                                }
-                                @if (un == "root" || un == "dispatcher")
-                                {
-                                    <li role="presentation" class="dropdown-header">dispatcher</li>
-                                    <li>@Html.ActionLink("Flight Class", "Index", "FlightClass")</li>
-                                    <li>@Html.ActionLink("Flight", "Index", "Flight")</li>
-                                    <li>@Html.ActionLink("Sortie", "Index", "Sortie")</li>
-                                    <li>@Html.ActionLink("Landing", "Index", "Landing")</li>
-                                }
-                            </ul>
-                        </li>
-                    }
+                @{
+                    var un = User.Identity!=null ? User.Identity.GetUserName() : "";
+                    if (Request.IsAuthenticated) 
+                    { 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Views<span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Transactions<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            @if (Request.IsAuthenticated)
-                            {
-                                var un = User.Identity.GetUserName();
-                                if (un == "root")
-                                {
-                                    <li role="presentation" class="dropdown-header">root</li>
-                                    <li>@Html.ActionLink("Brigade List", "Index", "BrigadeListView")</li>
-                                    <li>@Html.ActionLink("Department info", "Index", "DepartmentView")</li>
-                                    <li>@Html.ActionLink("Employee List", "Index", "EmployeeListView")</li>
-                                    <li>@Html.ActionLink("Pilots With Medical Examination", "Index", "PilotsWithMedicalExaminationView")</li>
-                                    <li>@Html.ActionLink("Pilots Without Medical Examination", "Index", "PilotsWithoutMedicalExaminationView")</li>
-                                    <li>@Html.ActionLink("Airline Stats", "Index", "AirlineStats")</li>
-                                    <li>@Html.ActionLink("Flight Class Stats", "Index", "FlightClassStats")</li>
-                                }
-                                if (un == "root" || un == "dispatcher")
-                                {
-                                    <li role="presentation" class="dropdown-header">dispatcher</li>
-                                    <li>@Html.ActionLink("Plane Info", "Index", "PlaneInfoView")</li>
-                                    <li>@Html.ActionLink("Sorties With Passangers", "Index", "SortiesWithPassangers")</li>
-                                }
-                                if (un == "root" || un == "technician")
-                                {
-                                    <li role="presentation" class="dropdown-header">technician</li>
-                                    <li>@Html.ActionLink("Plane Info", "Index", "PlaneInfoView")</li>
-                                }
-
-                            }
-                            <li role="presentation" class="dropdown-header">guest</li>
-                            <li>@Html.ActionLink("Flights In Month", "Index", "SortiesInMonth")</li>
-                            @*<li class="disabled"><a href="#">Flight class stats</a></li>
-                    <li class="disabled"><a href="#">Airport Stats</a></li>
-                    <li class="disabled"><a href="#">Planes</a></li>*@
-                            <li>@Html.ActionLink("Flight Info", "Index", "FlightInfoView")</li>
-                            <li>@Html.ActionLink("Flight In A Day", "Index", "FlightInADayView")</li>
-                            <li>@Html.ActionLink("Delayed Landings", "Index", "DelayedLandingsView")</li>
-                            <li>@Html.ActionLink("Plane View", "Index", "PlaneView")</li>
+                        @if (un == "root" || un == "dispatcher")
+                        { 
+                            <li>@Html.ActionLink("Add Flight (Manually)", "FlightAdd", "Procedures")</li>
+                            <li>@Html.ActionLink("Generate flight", "FlightGenerateNext", "Procedures")</li>
+                            <li>@Html.ActionLink("Change plane", "FlightChangePlane", "Procedures")</li>
+                            <li>@Html.ActionLink("Change team", "FlightChangeTeam", "Procedures")</li>
+                            <li>@Html.ActionLink("Register landing", "FlightLandingDo", "Procedures")</li>
+                            <li>@Html.ActionLink("Set landing delay", "FlightLandingMove", "Procedures")</li>
+                            <li>@Html.ActionLink("Register sortie", "FlightSortieDo", "Procedures")</li>
+                            <li>@Html.ActionLink("Set sortie delay", "FlightSortieMove", "Procedures")</li>
+                            <li>@Html.ActionLink("Cancel sortie", "FlightSortieCancel", "Procedures")</li>
+                        }
+                        @if (un == "root")
+                        {
+                            <li role="presentation" class="divider"></li>
+                        }
+                        @if (un == "root" || un == "technician")
+                        {
+                            <li>@Html.ActionLink("Start plane repair", "Index", "PlaneRepairs")</li>
+                            <li>@Html.ActionLink("End plane repair", "Index", "PlaneRepairsEnded")</li>
+                            <li>@Html.ActionLink("Start plane inspection", "Index", "PlaneInspections")</li>
+                            <li>@Html.ActionLink("End plane inspection", "Index", "PlaneInspectionsEnded")</li>
+                        }
+                        @if (un == "root")
+                        {
+                            <li role="presentation" class="divider"></li>
+                        }
+                        @if (un == "root" || un == "seller")
+                        {
+                            <li>@Html.ActionLink("Passenger registration", "Index", "Passanger")</li>
+                            <li>@Html.ActionLink("Buy/return ticket", "Index", "Ticket")</li>
+                            <li>@Html.ActionLink("Flight registration", "Index", "Registration")</li>
+                        }
                         </ul>
                     </li>
-                    @if (Request.IsAuthenticated)
-                    {
-                        var un = User.Identity.GetUserName();
-                        if (un == "root" || un == "dispatcher")
-                        { 
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dispatcher panel<span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li role="presentation" class="dropdown-header">dispatcher</li>
-                                    <li>@Html.ActionLink("Add Flight (Manually)", "FlightAdd", "Procedures")</li>
-                                    <li>@Html.ActionLink("Generate Flight", "FlightGenerateNext", "Procedures")</li>
-                                    <li>@Html.ActionLink("Change Plane", "FlightChangePlane", "Procedures")</li>
-                                    <li>@Html.ActionLink("Change Team", "FlightChangeTeam", "Procedures")</li>
-                                    <li>@Html.ActionLink("Register Landing", "FlightLandingDo", "Procedures")</li>
-                                    <li>@Html.ActionLink("Move Landing", "FlightLandingMove", "Procedures")</li>
-                                    <li>@Html.ActionLink("Register Sortie", "FlightSortieDo", "Procedures")</li>
-                                    <li>@Html.ActionLink("Move Sortie", "FlightSortieMove", "Procedures")</li>
-                                    <li>@Html.ActionLink("Cancel Sortie", "FlightSortieCancel", "Procedures")</li>
-                                </ul>
-                            </li>
-                        }
                     }
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reference<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            @if (un == "root")
+                            {
+                                <li>@Html.ActionLink("List of brigades", "Index", "BrigadeListView")</li>
+                                <li>@Html.ActionLink("Departments", "Index", "DepartmentView")</li>
+                                <li>@Html.ActionLink("List of employee", "Index", "EmployeeListView")</li>
+                            
+                            @*<li>@Html.ActionLink("Airline Stats", "Index", "AirlineStats")</li>
+    <li>@Html.ActionLink("Flight Class Stats", "Index", "FlightClassStats")</li>*@
+                            }
+                            @if (un == "root")
+                            {
+                                <li role="presentation" class="divider"></li>
+                            }
+                            @if (un == "root" || un == "dispatcher")
+                            {
+                                <li>@Html.ActionLink("Pilots with med examination", "Index", "PilotsWithMedicalExaminationView")</li>
+                                <li>@Html.ActionLink("Pilots without med examination", "Index", "PilotsWithoutMedicalExaminationView")</li>
+                                <li>@Html.ActionLink("Plane Info", "Index", "PlaneInfoView")</li>
+                            }
+                            @if (un == "root" || un == "dispatcher" || un == "seller")
+                            {
+                                <li>@Html.ActionLink("Sorties With Passangers", "Index", "SortiesWithPassangers")</li>
+                            }
+                            @if (un == "root" || un == "technician" || un == "dispatcher")
+                            {
+                                <li>@Html.ActionLink("Plane Info", "Index", "PlaneInfoView")</li>
+                            }
+                            @if (un == "root")
+                            {
+                                <li role="presentation" class="divider"></li>
+                            }
+                            <li>@Html.ActionLink("Flights", "Index", "FlightInfoView")</li>
+                            <li>@Html.ActionLink("Flighs by day", "Index", "FlightInADayView")</li>
+                            <li>@Html.ActionLink("Delayed landings", "Index", "DelayedLandingsView")</li>
+                            <li>@Html.ActionLink("Planes", "Index", "PlaneView")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Stats<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Airline stats", "Index", "AirlineStats")</li>
+                            <li>@Html.ActionLink("Flight stats", "Index", "FlightClassStats")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Schedule<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Flight schedule for a month", "Index", "SortiesInMonth")</li>
+                        </ul>
+                    </li>
+                    if(un == "root")
+                    {
+                        <li>@Html.ActionLink("Administration", "Administer", "Home")</li>
+                    }
+                }
                 </ul>
-
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
@@ -144,7 +133,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Airports managenet center</p>
         </footer>
     </div>
 
