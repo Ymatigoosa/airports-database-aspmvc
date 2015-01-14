@@ -1,0 +1,209 @@
+﻿@model FlightsASPMVC.Models.flight_info
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>flight_info</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.id, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.id)
+                @Html.ValidationMessageFor(model => model.id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.plane_id, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.plane_id)
+                @Html.ValidationMessageFor(model => model.plane_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.plane_model_name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.plane_model_name)
+                @Html.ValidationMessageFor(model => model.plane_model_name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.team, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.team)
+                @Html.ValidationMessageFor(model => model.team)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.passenger_capacity, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.passenger_capacity)
+                @Html.ValidationMessageFor(model => model.passenger_capacity)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.bought, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.bought)
+                @Html.ValidationMessageFor(model => model.bought)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.free, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.free)
+                @Html.ValidationMessageFor(model => model.free)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sortie_start, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sortie_start)
+                @Html.ValidationMessageFor(model => model.sortie_start)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sortie_delta_time, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sortie_delta_time)
+                @Html.ValidationMessageFor(model => model.sortie_delta_time)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.landing_start, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.landing_start)
+                @Html.ValidationMessageFor(model => model.landing_start)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.landing_delta_time, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.landing_delta_time)
+                @Html.ValidationMessageFor(model => model.landing_delta_time)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.flight_class, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.flight_class)
+                @Html.ValidationMessageFor(model => model.flight_class)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.from, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.from)
+                @Html.ValidationMessageFor(model => model.from)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.to, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.to)
+                @Html.ValidationMessageFor(model => model.to)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.periodicity_type, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.periodicity_type)
+                @Html.ValidationMessageFor(model => model.periodicity_type)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.time_of_departure, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.time_of_departure)
+                @Html.ValidationMessageFor(model => model.time_of_departure)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.travel_time, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.travel_time)
+                @Html.ValidationMessageFor(model => model.travel_time)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.range, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.range)
+                @Html.ValidationMessageFor(model => model.range)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.type, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.type)
+                @Html.ValidationMessageFor(model => model.type)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.common_price, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.common_price)
+                @Html.ValidationMessageFor(model => model.common_price)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.premium_price, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.premium_price)
+                @Html.ValidationMessageFor(model => model.premium_price)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.airline_name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.airline_name)
+                @Html.ValidationMessageFor(model => model.airline_name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

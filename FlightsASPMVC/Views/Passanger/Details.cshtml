@@ -1,0 +1,98 @@
+﻿@model FlightsASPMVC.Models.passenger
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>passenger</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patronymic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patronymic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.additional_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.additional_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.passport_num)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.passport_num)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.internationlal_passport_num)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.internationlal_passport_num)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city1.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city1.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

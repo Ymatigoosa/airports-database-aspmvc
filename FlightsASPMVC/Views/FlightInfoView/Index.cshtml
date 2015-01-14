@@ -1,0 +1,147 @@
+﻿@model IEnumerable<FlightsASPMVC.Models.flight_info>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.plane_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.plane_model_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.team)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.passenger_capacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.free)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sortie_start)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sortie_delta_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.landing_start)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.landing_delta_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.flight_class)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.from)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.to)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.periodicity_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.time_of_departure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.travel_time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.range)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.common_price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.premium_price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.airline_name)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.plane_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.plane_model_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.team)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.passenger_capacity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.free)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sortie_start)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sortie_delta_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.landing_start)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.landing_delta_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.flight_class)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.from)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.to)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.periodicity_type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.time_of_departure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.travel_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.range)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.common_price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.premium_price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.airline_name)
+        </td>
+    </tr>
+}
+
+</table>

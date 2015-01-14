@@ -1,0 +1,50 @@
+﻿@model FlightsASPMVC.Models.plane_info
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>plane_info</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.last_repair)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.last_repair)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.last_repair_conclusion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.last_repair_conclusion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.last_inspection)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.last_inspection)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.last_inspections_conclusion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.last_inspections_conclusion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,74 @@
+﻿@model FlightsASPMVC.Models.flight_class_stat
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>flight_class_stat</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.plane_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.plane_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.plane_model_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.plane_model_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.avg_passenger_capacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.avg_passenger_capacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.avg_bought)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.avg_bought)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.avg_free)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.avg_free)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.avg_sortie_delta_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.avg_sortie_delta_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.avg_delta_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.avg_delta_time)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,114 @@
+﻿@model FlightsASPMVC.Models.flight_class
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>flight_class</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.from, "from", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("from", String.Empty)
+                @Html.ValidationMessageFor(model => model.from)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.to, "to", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("to", String.Empty)
+                @Html.ValidationMessageFor(model => model.to)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.periodicity_type, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.periodicity_type)
+                @Html.ValidationMessageFor(model => model.periodicity_type)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.period, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.period)
+                @Html.ValidationMessageFor(model => model.period)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.time_of_departure, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.time_of_departure)
+                @Html.ValidationMessageFor(model => model.time_of_departure)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.travel_time, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.travel_time)
+                @Html.ValidationMessageFor(model => model.travel_time)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.range, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.range)
+                @Html.ValidationMessageFor(model => model.range)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.type, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.type)
+                @Html.ValidationMessageFor(model => model.type)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.common_price, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.common_price)
+                @Html.ValidationMessageFor(model => model.common_price)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.premium_price, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.premium_price)
+                @Html.ValidationMessageFor(model => model.premium_price)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

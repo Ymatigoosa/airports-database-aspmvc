@@ -1,0 +1,38 @@
+﻿@model IEnumerable<FlightsASPMVC.Models.department_view>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.departnent_name)</th>
+        <th>
+            @Html.DisplayNameFor(model => model.head_lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.brigades)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.departnent_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.head_lastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.brigades)
+        </td>
+        
+    </tr>
+}
+
+</table>

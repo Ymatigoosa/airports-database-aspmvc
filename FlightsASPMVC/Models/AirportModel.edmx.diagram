@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8ace0002d2434dba96adf002d35cb07f" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="airportModel.airline" Width="1.5" PointX="0.75" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.airport" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.baggage" Width="1.5" PointX="9" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.brigade" Width="1.5" PointX="6" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.city" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.country" Width="1.5" PointX="1.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.department" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.employee" Width="1.5" PointX="11.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.employee_type" Width="1.5" PointX="9" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.flight" Width="1.5" PointX="8.25" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.flight_class" Width="1.5" PointX="5.25" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.landing" Width="1.5" PointX="10.5" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.passenger" Width="1.5" PointX="6.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.plane" Width="1.5" PointX="6" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.plane_inspections" Width="1.5" PointX="8.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.plane_inspections_ended" Width="1.5" PointX="10.5" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.plane_model" Width="1.5" PointX="3.75" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.plane_repairs" Width="1.5" PointX="8.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.plane_repairs_ended" Width="1.5" PointX="10.5" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.registration" Width="1.5" PointX="15" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.sortie" Width="1.5" PointX="10.5" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.ticket" Width="1.5" PointX="12.75" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.brigade_list" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.delayed_landings" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.employee_list" Width="1.5" PointX="3.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.pilots_with_med_examination" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.pilots_without_med_examination" Width="1.5" PointX="13.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.plane_info" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.planes" Width="1.5" PointX="13.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="airportModel.sorties_with_passengers" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="airportModel.dfdsfdsfdsfds" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.fkaiportairline" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.dfdfasdsadsadsadsa" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.dvsdasdasdsadsa" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.fkaiportcity" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.gfdgdfgdf" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.sdsdsfdfdsfdfdsfdsfds" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.dfdfsdfdsfdsfds" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.sadsadsdsadsadas" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.hjhjhjgddasdasdas" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.asdgfbvbvcbc" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.cdcsdcsdsds" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.sfdfsdfsdfdsfsd" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.department_ibfk_1" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.dfsdsdsadsadas" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.bvcbvcbvcbvcbvcbvcb" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.dfdfdfdfsdfdsfds" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.fgdfgfdgfdgfd" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.asdfgdgfgfghf" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.ddfdfdsfdsfdsfds" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.dsfsdfdsfdsfsd" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.jhgjhggfhfd" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.gfdgfdgfdgfdgfd" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.dfdsfsdfdsfdsd" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.dsfdsfdfdsfdsfds" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.gfdgfdgfgdfgfdgdf" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.dfgfdgfdgfdgf" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.dfdfdsfdfds" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.bvcbvcbvcbvc" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.dsadsadsadsa" ManuallyRouted="false" />
+        <AssociationConnector Association="airportModel.dfdfsdfdsfdsfds1" />
+        <EntityTypeShape EntityType="airportModel.department_view" Width="1.5" PointX="0.75" PointY="16.75" />
+        <EntityTypeShape EntityType="airportModel.airline_statistics" Width="1.5" PointX="16.375" PointY="3.75" />
+        <EntityTypeShape EntityType="airportModel.flight_class_stat" Width="1.5" PointX="16.375" PointY="6.75" />
+        <EntityTypeShape EntityType="airportModel.flight_info" Width="1.5" PointX="13.75" PointY="13.75" />
+        <EntityTypeShape EntityType="airportModel.flights_by_airline_in_day" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="airportModel.sorties_in_month" Width="1.5" PointX="15.75" PointY="13.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

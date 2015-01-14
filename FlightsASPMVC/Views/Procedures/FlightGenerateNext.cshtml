@@ -1,0 +1,61 @@
+﻿@model FlightsASPMVC.Models.FlightGenerateNextInputViewModel
+
+@{
+    ViewBag.Title = "Procedures";
+}
+
+<h2>Generate next flight</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>ticket</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.plane_id, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.plane_id, (IEnumerable<SelectListItem>)ViewBag.plane, String.Empty)
+                @Html.ValidationMessageFor(model => model.plane_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.team_id, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.team_id, (IEnumerable<SelectListItem>)ViewBag.brigade, String.Empty)
+                @Html.ValidationMessageFor(model => model.team_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.flight_class_id, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.flight_class_id, (IEnumerable<SelectListItem>)ViewBag.flight_class, String.Empty)
+                @Html.ValidationMessageFor(model => model.flight_class_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.start_time, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.start_time)
+                @Html.ValidationMessageFor(model => model.start_time)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Run" class="btn btn-default" />
+            </div>
+        </div>
+  
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

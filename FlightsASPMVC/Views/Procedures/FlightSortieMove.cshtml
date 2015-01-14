@@ -1,0 +1,53 @@
+﻿@model FlightsASPMVC.Models.FlightSortieMoveInputViewModel
+
+@{
+    ViewBag.Title = "Procedures";
+}
+
+<h2>Set sortie delay</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>ticket</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.flight_id, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.flight_id, (IEnumerable<SelectListItem>)ViewBag.flight, String.Empty)
+                @Html.ValidationMessageFor(model => model.flight_id)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.delta, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.delta)
+                @Html.ValidationMessageFor(model => model.delta)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.reasont, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.reasont)
+                @Html.ValidationMessageFor(model => model.reasont)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Run" class="btn btn-default" />
+            </div>
+        </div>
+  
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,135 @@
+﻿@model IEnumerable<FlightsASPMVC.Models.employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.patronymic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.additional_phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.number_of_flights)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hours_in_flights)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hire_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_of_dismissal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.last_medical_examination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.childrencount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.airport1.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.employee_type.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.brigade1.comment)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.patronymic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.additional_phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.number_of_flights)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hours_in_flights)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hire_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_of_dismissal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_medical_examination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.childrencount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sex)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.airport1.id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.employee_type.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.brigade1.comment)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

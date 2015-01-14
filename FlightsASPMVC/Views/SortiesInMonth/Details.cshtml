@@ -1,0 +1,98 @@
+﻿@model FlightsASPMVC.Models.sorties_in_month
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>sorties_in_month</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.plane_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.plane_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.plane_model_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.plane_model_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.team)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.team)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.passenger_capacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.passenger_capacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.free)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.free)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sortie_start)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sortie_start)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sortie_delta_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sortie_delta_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.landing_start)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.landing_start)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.landing_delta_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.landing_delta_time)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.bought }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

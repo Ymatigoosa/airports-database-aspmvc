@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FlightsASPMVC.Models.flights_by_airline_in_day>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.airline_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sortie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sortie_count)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.airline_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sortie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sortie_count)
+        </td>
+    </tr>
+}
+
+</table>

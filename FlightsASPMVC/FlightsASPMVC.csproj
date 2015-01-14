@@ -1,0 +1,657 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2864104F-19DB-4395-9F8A-E162305D09AD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FlightsASPMVC</RootNamespace>
+    <AssemblyName>FlightsASPMVC</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\MySql.Data.6.9.5\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.5\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\MySql.Web.6.9.5\lib\net45\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="NotFoundMvc">
+      <HintPath>..\packages\NotFoundMvc.1.2.0\lib\net40\NotFoundMvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AirlineController.cs" />
+    <Compile Include="Controllers\AirlineStatsController.cs" />
+    <Compile Include="Controllers\AirportController.cs" />
+    <Compile Include="Controllers\BaggageController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BrigadeController.cs" />
+    <Compile Include="Controllers\BrigadeListViewController.cs" />
+    <Compile Include="Controllers\CityController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\DelayedLandingsViewController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\DepartmentViewController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\EmployeeListViewController.cs" />
+    <Compile Include="Controllers\EmployeeTypeController.cs" />
+    <Compile Include="Controllers\FlightClassController.cs" />
+    <Compile Include="Controllers\FlightClassStatsController.cs" />
+    <Compile Include="Controllers\FlightController.cs" />
+    <Compile Include="Controllers\FlightInADayViewController.cs" />
+    <Compile Include="Controllers\FlightInfoViewController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LandingController.cs" />
+    <Compile Include="Controllers\PassangerController.cs" />
+    <Compile Include="Controllers\PilotsWithMedicalExaminationViewController.cs" />
+    <Compile Include="Controllers\PilotsWithoutMedicalExaminationViewController.cs" />
+    <Compile Include="Controllers\PlaneController.cs" />
+    <Compile Include="Controllers\PlaneInfoViewController.cs" />
+    <Compile Include="Controllers\PlaneInspectionsController.cs" />
+    <Compile Include="Controllers\PlaneInspectionsEndedController.cs" />
+    <Compile Include="Controllers\PlaneModelController.cs" />
+    <Compile Include="Controllers\PlaneRepairsController.cs" />
+    <Compile Include="Controllers\PlaneRepairsEndedController.cs" />
+    <Compile Include="Controllers\PlaneViewController.cs" />
+    <Compile Include="Controllers\ProceduresController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="Controllers\SortieController.cs" />
+    <Compile Include="Controllers\SortiesInMonthController.cs" />
+    <Compile Include="Controllers\SortiesWithPassangersController.cs" />
+    <Compile Include="Controllers\TicketController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\airline.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\airline_statistics.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\airport.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AirportModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AirportModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AirportModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AirportModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AirportModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\baggage.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\brigade.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\brigade_list.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\city.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\country.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\delayed_landings.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\department.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\department_view.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\employee.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\employee_list.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\employee_type.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\flight.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\flights_by_airline_in_day.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\flight_class.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\flight_class_stat.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\flight_info.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\landing.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\passenger.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pilots_without_med_examination.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pilots_with_med_examination.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\plane.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\planes.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\plane_info.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\plane_inspections.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\plane_inspections_ended.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\plane_model.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\plane_repairs.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\plane_repairs_ended.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProceduresViewModels.cs" />
+    <Compile Include="Models\registration.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sortie.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sorties_in_month.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sorties_with_passengers.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ticket.cs">
+      <DependentUpon>AirportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\AirportModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AirportModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\AirportModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AirportModel.edmx</DependentUpon>
+      <LastGenOutput>AirportModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\AirportModel.edmx.diagram">
+      <DependentUpon>AirportModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\AirportModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AirportModel.edmx</DependentUpon>
+      <LastGenOutput>AirportModel.cs</LastGenOutput>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Airport\Create.cshtml" />
+    <Content Include="Views\Airport\Delete.cshtml" />
+    <Content Include="Views\Airport\Details.cshtml" />
+    <Content Include="Views\Airport\Edit.cshtml" />
+    <Content Include="Views\Airport\Index.cshtml" />
+    <Content Include="Views\Flight\Create.cshtml" />
+    <Content Include="Views\Flight\Delete.cshtml" />
+    <Content Include="Views\Flight\Details.cshtml" />
+    <Content Include="Views\Flight\Edit.cshtml" />
+    <Content Include="Views\Flight\Index.cshtml" />
+    <Content Include="Views\FlightInfoView\Create.cshtml" />
+    <Content Include="Views\FlightInfoView\Delete.cshtml" />
+    <Content Include="Views\FlightInfoView\Details.cshtml" />
+    <Content Include="Views\FlightInfoView\Edit.cshtml" />
+    <Content Include="Views\FlightInfoView\Index.cshtml" />
+    <Content Include="Views\Airline\Create.cshtml" />
+    <Content Include="Views\Airline\Delete.cshtml" />
+    <Content Include="Views\Airline\Details.cshtml" />
+    <Content Include="Views\Airline\Edit.cshtml" />
+    <Content Include="Views\Airline\Index.cshtml" />
+    <Content Include="Views\Baggage\Create.cshtml" />
+    <Content Include="Views\Baggage\Delete.cshtml" />
+    <Content Include="Views\Baggage\Details.cshtml" />
+    <Content Include="Views\Baggage\Edit.cshtml" />
+    <Content Include="Views\Baggage\Index.cshtml" />
+    <Content Include="Views\Brigade\Create.cshtml" />
+    <Content Include="Views\Brigade\Delete.cshtml" />
+    <Content Include="Views\Brigade\Details.cshtml" />
+    <Content Include="Views\Brigade\Edit.cshtml" />
+    <Content Include="Views\Brigade\Index.cshtml" />
+    <Content Include="Views\City\Create.cshtml" />
+    <Content Include="Views\City\Delete.cshtml" />
+    <Content Include="Views\City\Details.cshtml" />
+    <Content Include="Views\City\Edit.cshtml" />
+    <Content Include="Views\City\Index.cshtml" />
+    <Content Include="Views\Country\Create.cshtml" />
+    <Content Include="Views\Country\Delete.cshtml" />
+    <Content Include="Views\Country\Details.cshtml" />
+    <Content Include="Views\Country\Edit.cshtml" />
+    <Content Include="Views\Country\Index.cshtml" />
+    <Content Include="Views\Department\Create.cshtml" />
+    <Content Include="Views\Department\Delete.cshtml" />
+    <Content Include="Views\Department\Details.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\EmployeeType\Create.cshtml" />
+    <Content Include="Views\EmployeeType\Delete.cshtml" />
+    <Content Include="Views\EmployeeType\Details.cshtml" />
+    <Content Include="Views\EmployeeType\Edit.cshtml" />
+    <Content Include="Views\EmployeeType\Index.cshtml" />
+    <Content Include="Views\FlightClass\Create.cshtml" />
+    <Content Include="Views\FlightClass\Delete.cshtml" />
+    <Content Include="Views\FlightClass\Details.cshtml" />
+    <Content Include="Views\FlightClass\Edit.cshtml" />
+    <Content Include="Views\FlightClass\Index.cshtml" />
+    <Content Include="Views\Landing\Create.cshtml" />
+    <Content Include="Views\Landing\Delete.cshtml" />
+    <Content Include="Views\Landing\Details.cshtml" />
+    <Content Include="Views\Landing\Edit.cshtml" />
+    <Content Include="Views\Landing\Index.cshtml" />
+    <Content Include="Views\Passanger\Create.cshtml" />
+    <Content Include="Views\Passanger\Delete.cshtml" />
+    <Content Include="Views\Passanger\Details.cshtml" />
+    <Content Include="Views\Passanger\Edit.cshtml" />
+    <Content Include="Views\Passanger\Index.cshtml" />
+    <Content Include="Views\Plane\Create.cshtml" />
+    <Content Include="Views\Plane\Delete.cshtml" />
+    <Content Include="Views\Plane\Details.cshtml" />
+    <Content Include="Views\Plane\Edit.cshtml" />
+    <Content Include="Views\Plane\Index.cshtml" />
+    <Content Include="Views\PlaneInspections\Create.cshtml" />
+    <Content Include="Views\PlaneInspections\Delete.cshtml" />
+    <Content Include="Views\PlaneInspections\Details.cshtml" />
+    <Content Include="Views\PlaneInspections\Edit.cshtml" />
+    <Content Include="Views\PlaneInspections\Index.cshtml" />
+    <Content Include="Views\PlaneInspectionsEnded\Create.cshtml" />
+    <Content Include="Views\PlaneInspectionsEnded\Delete.cshtml" />
+    <Content Include="Views\PlaneInspectionsEnded\Details.cshtml" />
+    <Content Include="Views\PlaneInspectionsEnded\Edit.cshtml" />
+    <Content Include="Views\PlaneInspectionsEnded\Index.cshtml" />
+    <Content Include="Views\PlaneModel\Create.cshtml" />
+    <Content Include="Views\PlaneModel\Delete.cshtml" />
+    <Content Include="Views\PlaneModel\Details.cshtml" />
+    <Content Include="Views\PlaneModel\Edit.cshtml" />
+    <Content Include="Views\PlaneModel\Index.cshtml" />
+    <Content Include="Views\PlaneRepairs\Create.cshtml" />
+    <Content Include="Views\PlaneRepairs\Delete.cshtml" />
+    <Content Include="Views\PlaneRepairs\Details.cshtml" />
+    <Content Include="Views\PlaneRepairs\Edit.cshtml" />
+    <Content Include="Views\PlaneRepairs\Index.cshtml" />
+    <Content Include="Views\PlaneRepairsEnded\Create.cshtml" />
+    <Content Include="Views\PlaneRepairsEnded\Delete.cshtml" />
+    <Content Include="Views\PlaneRepairsEnded\Details.cshtml" />
+    <Content Include="Views\PlaneRepairsEnded\Edit.cshtml" />
+    <Content Include="Views\PlaneRepairsEnded\Index.cshtml" />
+    <Content Include="Views\Sortie\Create.cshtml" />
+    <Content Include="Views\Sortie\Delete.cshtml" />
+    <Content Include="Views\Sortie\Details.cshtml" />
+    <Content Include="Views\Sortie\Edit.cshtml" />
+    <Content Include="Views\Sortie\Index.cshtml" />
+    <Content Include="Views\Registration\Create.cshtml" />
+    <Content Include="Views\Registration\Delete.cshtml" />
+    <Content Include="Views\Registration\Details.cshtml" />
+    <Content Include="Views\Registration\Edit.cshtml" />
+    <Content Include="Views\Registration\Index.cshtml" />
+    <Content Include="Views\BrigadeListView\Create.cshtml" />
+    <Content Include="Views\BrigadeListView\Delete.cshtml" />
+    <Content Include="Views\BrigadeListView\Details.cshtml" />
+    <Content Include="Views\BrigadeListView\Edit.cshtml" />
+    <Content Include="Views\BrigadeListView\Index.cshtml" />
+    <Content Include="Views\DelayedLandingsView\Create.cshtml" />
+    <Content Include="Views\DelayedLandingsView\Delete.cshtml" />
+    <Content Include="Views\DelayedLandingsView\Details.cshtml" />
+    <Content Include="Views\DelayedLandingsView\Edit.cshtml" />
+    <Content Include="Views\DelayedLandingsView\Index.cshtml" />
+    <Content Include="Views\EmployeeListView\Create.cshtml" />
+    <Content Include="Views\EmployeeListView\Delete.cshtml" />
+    <Content Include="Views\EmployeeListView\Details.cshtml" />
+    <Content Include="Views\EmployeeListView\Edit.cshtml" />
+    <Content Include="Views\EmployeeListView\Index.cshtml" />
+    <Content Include="Views\FlightInADayView\Create.cshtml" />
+    <Content Include="Views\FlightInADayView\Delete.cshtml" />
+    <Content Include="Views\FlightInADayView\Details.cshtml" />
+    <Content Include="Views\FlightInADayView\Edit.cshtml" />
+    <Content Include="Views\FlightInADayView\Index.cshtml" />
+    <Content Include="Views\PilotsWithMedicalExaminationView\Create.cshtml" />
+    <Content Include="Views\PilotsWithMedicalExaminationView\Delete.cshtml" />
+    <Content Include="Views\PilotsWithMedicalExaminationView\Details.cshtml" />
+    <Content Include="Views\PilotsWithMedicalExaminationView\Edit.cshtml" />
+    <Content Include="Views\PilotsWithMedicalExaminationView\Index.cshtml" />
+    <Content Include="Views\PilotsWithoutMedicalExaminationView\Create.cshtml" />
+    <Content Include="Views\PilotsWithoutMedicalExaminationView\Delete.cshtml" />
+    <Content Include="Views\PilotsWithoutMedicalExaminationView\Details.cshtml" />
+    <Content Include="Views\PilotsWithoutMedicalExaminationView\Edit.cshtml" />
+    <Content Include="Views\PilotsWithoutMedicalExaminationView\Index.cshtml" />
+    <Content Include="Views\PlaneInfoView\Create.cshtml" />
+    <Content Include="Views\PlaneInfoView\Delete.cshtml" />
+    <Content Include="Views\PlaneInfoView\Details.cshtml" />
+    <Content Include="Views\PlaneInfoView\Edit.cshtml" />
+    <Content Include="Views\PlaneInfoView\Index.cshtml" />
+    <Content Include="Views\SortiesInMonth\Create.cshtml" />
+    <Content Include="Views\SortiesInMonth\Delete.cshtml" />
+    <Content Include="Views\SortiesInMonth\Details.cshtml" />
+    <Content Include="Views\SortiesInMonth\Edit.cshtml" />
+    <Content Include="Views\SortiesInMonth\Index.cshtml" />
+    <Content Include="Views\SortiesWithPassangers\Create.cshtml" />
+    <Content Include="Views\SortiesWithPassangers\Delete.cshtml" />
+    <Content Include="Views\SortiesWithPassangers\Details.cshtml" />
+    <Content Include="Views\SortiesWithPassangers\Edit.cshtml" />
+    <Content Include="Views\SortiesWithPassangers\Index.cshtml" />
+    <Content Include="Views\Ticket\Create.cshtml" />
+    <Content Include="Views\Ticket\Delete.cshtml" />
+    <Content Include="Views\Ticket\Details.cshtml" />
+    <Content Include="Views\Ticket\Edit.cshtml" />
+    <Content Include="Views\Ticket\Index.cshtml" />
+    <Content Include="Views\Procedures\FlightAdd.cshtml" />
+    <Content Include="Views\Shared\NotFound.cshtml" />
+    <Content Include="Views\Shared\_Alerts.cshtml" />
+    <Content Include="Views\Procedures\FlightChangePlane.cshtml" />
+    <Content Include="Views\Procedures\FlightChangeTeam.cshtml" />
+    <Content Include="Views\Procedures\FlightGenerateNext.cshtml" />
+    <Content Include="Views\Procedures\FlightLandingDo.cshtml" />
+    <Content Include="Views\Procedures\FlightLandingMove.cshtml" />
+    <Content Include="Views\Procedures\FlightSortieCancel.cshtml" />
+    <Content Include="Views\Procedures\FlightSortieDo.cshtml" />
+    <Content Include="Views\Procedures\FlightSortieMove.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
+    <Content Include="Views\Employee\Delete.cshtml" />
+    <Content Include="Views\Employee\Details.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\DepartmentView\Create.cshtml" />
+    <Content Include="Views\DepartmentView\Delete.cshtml" />
+    <Content Include="Views\DepartmentView\Details.cshtml" />
+    <Content Include="Views\DepartmentView\Edit.cshtml" />
+    <Content Include="Views\DepartmentView\Index.cshtml" />
+    <Content Include="Views\AirlineStats\Create.cshtml" />
+    <Content Include="Views\AirlineStats\Delete.cshtml" />
+    <Content Include="Views\AirlineStats\Details.cshtml" />
+    <Content Include="Views\AirlineStats\Edit.cshtml" />
+    <Content Include="Views\AirlineStats\Index.cshtml" />
+    <Content Include="Views\FlightClassStats\Create.cshtml" />
+    <Content Include="Views\FlightClassStats\Delete.cshtml" />
+    <Content Include="Views\FlightClassStats\Details.cshtml" />
+    <Content Include="Views\FlightClassStats\Edit.cshtml" />
+    <Content Include="Views\FlightClassStats\Index.cshtml" />
+    <Content Include="Views\PlaneView\Create.cshtml" />
+    <Content Include="Views\PlaneView\Delete.cshtml" />
+    <Content Include="Views\PlaneView\Details.cshtml" />
+    <Content Include="Views\PlaneView\Edit.cshtml" />
+    <Content Include="Views\PlaneView\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\Default1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2333</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2333/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

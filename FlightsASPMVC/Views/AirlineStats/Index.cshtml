@@ -1,0 +1,33 @@
+﻿@model IEnumerable<FlightsASPMVC.Models.airline_statistics>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.airline_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.avg_day_sortie_count)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.airline_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.avg_day_sortie_count)
+        </td>
+    </tr>
+}
+
+</table>

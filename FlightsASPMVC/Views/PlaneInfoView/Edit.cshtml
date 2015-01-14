@@ -1,0 +1,72 @@
+﻿@model FlightsASPMVC.Models.plane_info
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>plane_info</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.id)
+
+        @Html.HiddenFor(model => model.airline)
+
+        @Html.HiddenFor(model => model.passenger_capacity)
+
+        @Html.HiddenFor(model => model.model)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.last_repair, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.last_repair)
+                @Html.ValidationMessageFor(model => model.last_repair)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.last_repair_conclusion, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.last_repair_conclusion)
+                @Html.ValidationMessageFor(model => model.last_repair_conclusion)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.last_inspection, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.last_inspection)
+                @Html.ValidationMessageFor(model => model.last_inspection)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.last_inspections_conclusion, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.last_inspections_conclusion)
+                @Html.ValidationMessageFor(model => model.last_inspections_conclusion)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

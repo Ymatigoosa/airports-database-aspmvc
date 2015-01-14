@@ -1,0 +1,42 @@
+﻿@model FlightsASPMVC.Models.flight
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>flight</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.brigade.comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.brigade.comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.flight_class1.periodicity_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.flight_class1.periodicity_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.plane1.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.plane1.id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<FlightsASPMVC.Models.plane_info>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.airline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.passenger_capacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.last_repair)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.last_repair_conclusion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.last_inspection)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.last_inspections_conclusion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.airline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.passenger_capacity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_repair)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_repair_conclusion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_inspection)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last_inspections_conclusion)
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,2987 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="airportModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="airline">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="airport">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="city" Type="int" Nullable="false" />
+          <Property Name="airline" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="baggage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="comment" Type="text" />
+          <Property Name="owned_by" Type="int" Nullable="false" />
+          <Property Name="receipt_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="return_date" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="brigade">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="comment" Type="text" />
+        </EntityType>
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="country" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="airport" Type="int" Nullable="false" />
+          <Property Name="head" Type="int" Nullable="false" />
+          <Property Name="type" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" />
+          <Property Name="patronymic" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="additional_phone" Type="varchar" MaxLength="20" />
+          <Property Name="comment" Type="text" />
+          <Property Name="number_of_flights" Type="int" />
+          <Property Name="hours_in_flights" Type="int" />
+          <Property Name="hire_date" Type="date" Nullable="false" />
+          <Property Name="date_of_dismissal" Type="date" />
+          <Property Name="city_of_residence" Type="int" Nullable="false" />
+          <Property Name="type" Type="int" Nullable="false" />
+          <Property Name="last_medical_examination" Type="date" Nullable="false" />
+          <Property Name="brigade" Type="int" Nullable="false" />
+          <Property Name="airport" Type="int" Nullable="false" />
+          <Property Name="salary" Type="int" Nullable="false" />
+          <Property Name="childrencount" Type="int" />
+          <Property Name="sex" Type="enum" Nullable="false" />
+        </EntityType>
+        <EntityType Name="employee_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="flight">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="team" Type="int" Nullable="false" />
+          <Property Name="flight_class" Type="int" Nullable="false" />
+          <Property Name="plane" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="flight_class">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="from" Type="int" Nullable="false" />
+          <Property Name="to" Type="int" Nullable="false" />
+          <Property Name="periodicity_type" Type="enum" Nullable="false" />
+          <Property Name="period" Type="int" Nullable="false" />
+          <Property Name="time of departure" Type="time" Precision="0" Nullable="false" />
+          <Property Name="travel time" Type="time" Precision="0" Nullable="false" />
+          <Property Name="range" Type="int" Nullable="false" />
+          <Property Name="type" Type="enum" Nullable="false" />
+          <Property Name="common_price" Type="int" Nullable="false" />
+          <Property Name="premium_price" Type="int" />
+        </EntityType>
+        <EntityType Name="landing">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="flight" Type="int" Nullable="false" />
+          <Property Name="state" Type="enum" Nullable="false" />
+          <Property Name="delta_time" Type="time" Precision="0" />
+          <Property Name="start" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="reason" Type="text" />
+        </EntityType>
+        <EntityType Name="passenger">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" />
+          <Property Name="patronymic" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="additional_phone" Type="varchar" MaxLength="20" />
+          <Property Name="comment" Type="text" />
+          <Property Name="city" Type="int" Nullable="false" />
+          <Property Name="age" Type="tinyint" Nullable="false" />
+          <Property Name="passport_num" Type="int" Nullable="false" />
+          <Property Name="internationlal_passport_num" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="plane">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="airline" Type="int" Nullable="false" />
+          <Property Name="model" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="plane_inspections">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="scheduled_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="responsible" Type="int" Nullable="false" />
+          <Property Name="comment" Type="text" />
+          <Property Name="plane" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="plane_inspections_ended">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="inspection" Type="int" Nullable="false" />
+          <Property Name="end_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="conclusion" Type="enum" Nullable="false" />
+          <Property Name="comment" Type="text" />
+        </EntityType>
+        <EntityType Name="plane_model">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="passenger_capacity" Type="smallint" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="plane_repairs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="plane" Type="int" Nullable="false" />
+          <Property Name="scheduled_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="responsible" Type="int" Nullable="false" />
+          <Property Name="comment" Type="text" />
+        </EntityType>
+        <EntityType Name="plane_repairs_ended">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="end_date" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="conclusion" Type="enum" Nullable="false" />
+          <Property Name="comment" Type="text" />
+          <Property Name="repair" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="registration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ticket" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sortie">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="flight" Type="int" Nullable="false" />
+          <Property Name="state" Type="enum" Nullable="false" />
+          <Property Name="delta_time" Type="time" Precision="0" />
+          <Property Name="start" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="reason" Type="text" />
+        </EntityType>
+        <EntityType Name="ticket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="flight" Type="int" Nullable="false" />
+          <Property Name="owner" Type="int" Nullable="false" />
+          <Property Name="place" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.airport.airline_statistics' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="airline_statistics">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="airline_name" Type="varchar" MaxLength="100" />
+          <Property Name="avg_day_sortie_count" Type="decimal" Precision="24" Scale="4" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.airport.brigade_list' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="brigade_list">
+          <Key>
+            <PropertyRef Name="brigade" />
+          </Key>
+          <Property Name="brigade" Type="int" Nullable="false" />
+          <Property Name="brigades" Type="text" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.airport.delayed_landings' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="delayed_landings">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="flight" />
+            <PropertyRef Name="state" />
+            <PropertyRef Name="start" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="flight" Type="int" Nullable="false" />
+          <Property Name="state" Type="enum" Nullable="false" />
+          <Property Name="delta_time" Type="time" Precision="0" />
+          <Property Name="start" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="reason" Type="text" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.airport.department_view' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="department_view">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="departnent_name" />
+            <PropertyRef Name="head_name" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="departnent_name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="head_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="head_lastname" Type="varchar" MaxLength="50" />
+          <Property Name="brigades" Type="text" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.airport.employee_list' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="employee_list">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="phone" />
+            <PropertyRef Name="type" />
+            <PropertyRef Name="brigade" />
+            <PropertyRef Name="airport" />
+            <PropertyRef Name="salary" />
+            <PropertyRef Name="sex" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" />
+          <Property Name="patronymic" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="additional_phone" Type="varchar" MaxLength="20" />
+          <Property Name="comment" Type="text" />
+          <Property Name="type" Type="int" Nullable="false" />
+          <Property Name="brigade" Type="int" Nullable="false" />
+          <Property Name="airport" Type="int" Nullable="false" />
+          <Property Name="salary" Type="int" Nullable="false" />
+          <Property Name="childrencount" Type="int" />
+          <Property Name="sex" Type="enum" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.airport.flight_class_stat' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="flight_class_stat">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="team" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="plane_id" Type="int" />
+          <Property Name="plane_model_name" Type="varchar" MaxLength="20" />
+          <Property Name="team" Type="int" Nullable="false" />
+          <Property Name="avg_passenger_capacity" Type="decimal" Precision="9" Scale="4" />
+          <Property Name="avg_bought" Type="decimal" Precision="24" Scale="4" />
+          <Property Name="avg_free" Type="decimal" Precision="25" Scale="4" />
+          <Property Name="avg_sortie_delta_time" Type="double" />
+          <Property Name="avg_delta_time" Type="double" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.airport.flight_info' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="flight_info">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="team" />
+            <PropertyRef Name="bought" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="plane_id" Type="int" />
+          <Property Name="plane_model_name" Type="varchar" MaxLength="20" />
+          <Property Name="team" Type="int" Nullable="false" />
+          <Property Name="passenger_capacity" Type="smallint" />
+          <Property Name="bought" Type="bigint" Nullable="false" />
+          <Property Name="free" Type="bigint" />
+          <Property Name="sortie_start" Type="datetime" Precision="0" />
+          <Property Name="sortie_delta_time" Type="time" Precision="0" />
+          <Property Name="landing_start" Type="datetime" Precision="0" />
+          <Property Name="landing_delta_time" Type="time" Precision="0" />
+          <Property Name="flight_class" Type="int" />
+          <Property Name="from" Type="varchar" MaxLength="100" />
+          <Property Name="to" Type="varchar" MaxLength="100" />
+          <Property Name="periodicity_type" Type="enum" />
+          <Property Name="time of departure" Type="time" Precision="0" />
+          <Property Name="travel time" Type="time" Precision="0" />
+          <Property Name="range" Type="int" />
+          <Property Name="type" Type="enum" />
+          <Property Name="common_price" Type="int" />
+          <Property Name="premium_price" Type="int" />
+          <Property Name="airline_name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.airport.flights_by_airline_in_day' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="flights_by_airline_in_day">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="sortie_count" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="airline_name" Type="varchar" MaxLength="100" />
+          <Property Name="sortie" Type="datetime" Precision="0" />
+          <Property Name="sortie_count" Type="bigint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.airport.pilots_with_med_examination' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="pilots_with_med_examination">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="phone" />
+            <PropertyRef Name="hire_date" />
+            <PropertyRef Name="city_of_residence" />
+            <PropertyRef Name="type" />
+            <PropertyRef Name="last_medical_examination" />
+            <PropertyRef Name="brigade" />
+            <PropertyRef Name="airport" />
+            <PropertyRef Name="salary" />
+            <PropertyRef Name="sex" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" />
+          <Property Name="patronymic" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="additional_phone" Type="varchar" MaxLength="20" />
+          <Property Name="comment" Type="text" />
+          <Property Name="number_of_flights" Type="int" />
+          <Property Name="hours_in_flights" Type="int" />
+          <Property Name="hire_date" Type="date" Nullable="false" />
+          <Property Name="date_of_dismissal" Type="date" />
+          <Property Name="city_of_residence" Type="int" Nullable="false" />
+          <Property Name="type" Type="int" Nullable="false" />
+          <Property Name="last_medical_examination" Type="date" Nullable="false" />
+          <Property Name="brigade" Type="int" Nullable="false" />
+          <Property Name="airport" Type="int" Nullable="false" />
+          <Property Name="salary" Type="int" Nullable="false" />
+          <Property Name="childrencount" Type="int" />
+          <Property Name="sex" Type="enum" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.airport.pilots_without_med_examination' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="pilots_without_med_examination">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="phone" />
+            <PropertyRef Name="hire_date" />
+            <PropertyRef Name="city_of_residence" />
+            <PropertyRef Name="type" />
+            <PropertyRef Name="last_medical_examination" />
+            <PropertyRef Name="brigade" />
+            <PropertyRef Name="airport" />
+            <PropertyRef Name="salary" />
+            <PropertyRef Name="sex" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" />
+          <Property Name="patronymic" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="additional_phone" Type="varchar" MaxLength="20" />
+          <Property Name="comment" Type="text" />
+          <Property Name="number_of_flights" Type="int" />
+          <Property Name="hours_in_flights" Type="int" />
+          <Property Name="hire_date" Type="date" Nullable="false" />
+          <Property Name="date_of_dismissal" Type="date" />
+          <Property Name="city_of_residence" Type="int" Nullable="false" />
+          <Property Name="type" Type="int" Nullable="false" />
+          <Property Name="last_medical_examination" Type="date" Nullable="false" />
+          <Property Name="brigade" Type="int" Nullable="false" />
+          <Property Name="airport" Type="int" Nullable="false" />
+          <Property Name="salary" Type="int" Nullable="false" />
+          <Property Name="childrencount" Type="int" />
+          <Property Name="sex" Type="enum" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.airport.plane_info' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="plane_info">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="airline" />
+            <PropertyRef Name="passenger_capacity" />
+            <PropertyRef Name="model" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="airline" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="passenger_capacity" Type="smallint" Nullable="false" />
+          <Property Name="model" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="last_repair" Type="datetime" Precision="0" />
+          <Property Name="last_repair_conclusion" Type="enum" />
+          <Property Name="last_inspection" Type="datetime" Precision="0" />
+          <Property Name="last_inspections_conclusion" Type="enum" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.airport.planes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="planes">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="airline" />
+            <PropertyRef Name="passenger_capacity" />
+            <PropertyRef Name="model" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="airline" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="passenger_capacity" Type="smallint" Nullable="false" />
+          <Property Name="model" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.airport.sorties_in_month' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="sorties_in_month">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="team" />
+            <PropertyRef Name="bought" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="plane_id" Type="int" />
+          <Property Name="plane_model_name" Type="varchar" MaxLength="20" />
+          <Property Name="team" Type="int" Nullable="false" />
+          <Property Name="passenger_capacity" Type="smallint" />
+          <Property Name="bought" Type="bigint" Nullable="false" />
+          <Property Name="free" Type="bigint" />
+          <Property Name="sortie_start" Type="datetime" Precision="0" />
+          <Property Name="sortie_delta_time" Type="time" Precision="0" />
+          <Property Name="landing_start" Type="datetime" Precision="0" />
+          <Property Name="landing_delta_time" Type="time" Precision="0" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.airport.sorties_with_passengers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="sorties_with_passengers">
+          <Key>
+            <PropertyRef Name="start" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="place" />
+            <PropertyRef Name="baggages count" />
+          </Key>
+          <Property Name="start" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" />
+          <Property Name="place" Type="int" Nullable="false" />
+          <Property Name="baggages count" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="asdfgdgfgfghf">
+          <End Role="flight_class" Type="Self.flight_class" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="flight" Type="Self.flight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="flight_class">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="flight">
+              <PropertyRef Name="flight_class" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="asdgfbvbvcbc">
+          <End Role="country" Type="Self.country" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="city" Type="Self.city" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="city">
+              <PropertyRef Name="country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="bvcbvcbvcbvc">
+          <End Role="ticket" Type="Self.ticket" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="registration" Type="Self.registration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ticket">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="registration">
+              <PropertyRef Name="ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="bvcbvcbvcbvcbvcbvcb">
+          <End Role="employee_type" Type="Self.employee_type" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="cdcsdcsdsds">
+          <End Role="city" Type="Self.city" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="passenger" Type="Self.passenger" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="passenger">
+              <PropertyRef Name="city" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ddfdfdsfdsfdsfds">
+          <End Role="flight" Type="Self.flight" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="sortie" Type="Self.sortie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="flight">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sortie">
+              <PropertyRef Name="flight" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="department_ibfk_1">
+          <End Role="employee_type" Type="Self.employee_type" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="department" Type="Self.department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="department">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dfdfasdsadsadsadsa">
+          <End Role="airport" Type="Self.airport" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="flight_class" Type="Self.flight_class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="airport">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="flight_class">
+              <PropertyRef Name="to" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dfdfdfdfsdfdsfds">
+          <End Role="employee" Type="Self.employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="plane_repairs" Type="Self.plane_repairs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plane_repairs">
+              <PropertyRef Name="responsible" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dfdfdsfdfds">
+          <End Role="plane_repairs" Type="Self.plane_repairs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="plane_repairs_ended" Type="Self.plane_repairs_ended" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="plane_repairs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plane_repairs_ended">
+              <PropertyRef Name="repair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dfdfsdfdsfdsfds">
+          <End Role="brigade" Type="Self.brigade" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="brigade">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="brigade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dfdsfdsfdsfds">
+          <End Role="airline" Type="Self.airline" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="plane" Type="Self.plane" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="airline">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plane">
+              <PropertyRef Name="airline" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dfdsfsdfdsfdsd">
+          <End Role="plane" Type="Self.plane" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="plane_repairs" Type="Self.plane_repairs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="plane">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plane_repairs">
+              <PropertyRef Name="plane" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dfgfdgfdgfdgf">
+          <End Role="plane_inspections" Type="Self.plane_inspections" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="plane_inspections_ended" Type="Self.plane_inspections_ended" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="plane_inspections">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plane_inspections_ended">
+              <PropertyRef Name="inspection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dfsdsdsadsadas">
+          <End Role="employee" Type="Self.employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="department" Type="Self.department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="department">
+              <PropertyRef Name="head" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dsadsadsadsa">
+          <End Role="sortie" Type="Self.sortie" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ticket" Type="Self.ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sortie">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ticket">
+              <PropertyRef Name="flight" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dsfdsfdfdsfdsfds">
+          <End Role="plane_model" Type="Self.plane_model" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="plane" Type="Self.plane" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="plane_model">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plane">
+              <PropertyRef Name="model" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dsfsdfdsfdsfsd">
+          <End Role="flight" Type="Self.flight" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="landing" Type="Self.landing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="flight">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="landing">
+              <PropertyRef Name="flight" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dvsdasdasdsadsa">
+          <End Role="airport" Type="Self.airport" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="flight_class" Type="Self.flight_class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="airport">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="flight_class">
+              <PropertyRef Name="from" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fgdfgfdgfdgfd">
+          <End Role="employee" Type="Self.employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="plane_inspections" Type="Self.plane_inspections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plane_inspections">
+              <PropertyRef Name="responsible" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkaiportairline">
+          <End Role="airline" Type="Self.airline" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="airport" Type="Self.airport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="airline">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="airport">
+              <PropertyRef Name="airline" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkaiportcity">
+          <End Role="city" Type="Self.city" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="airport" Type="Self.airport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="airport">
+              <PropertyRef Name="city" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gfdgdfgdf">
+          <End Role="airport" Type="Self.airport" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="department" Type="Self.department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="airport">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="department">
+              <PropertyRef Name="airport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gfdgfdgfdgfdgfd">
+          <End Role="passenger" Type="Self.passenger" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ticket" Type="Self.ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="passenger">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ticket">
+              <PropertyRef Name="owner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gfdgfdgfgdfgfdgdf">
+          <End Role="plane" Type="Self.plane" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="plane_inspections" Type="Self.plane_inspections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="plane">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plane_inspections">
+              <PropertyRef Name="plane" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="hjhjhjgddasdasdas">
+          <End Role="brigade" Type="Self.brigade" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="flight" Type="Self.flight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="brigade">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="flight">
+              <PropertyRef Name="team" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="jhgjhggfhfd">
+          <End Role="plane" Type="Self.plane" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="flight" Type="Self.flight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="plane">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="flight">
+              <PropertyRef Name="plane" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sadsadsdsadsadas">
+          <End Role="passenger" Type="Self.passenger" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="baggage" Type="Self.baggage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="passenger">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="baggage">
+              <PropertyRef Name="owned_by" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sdsdsfdfdsfdfdsfdsfds">
+          <End Role="airport" Type="Self.airport" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="airport">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="airport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sfdfsdfsdfdsfsd">
+          <End Role="city" Type="Self.city" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="city_of_residence" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="flight_add" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="airport">
+          <Parameter Name="team_id" Type="int" Mode="In" />
+          <Parameter Name="flight_class_id" Type="int" Mode="In" />
+          <Parameter Name="plane_id" Type="int" Mode="In" />
+          <Parameter Name="sortie_time" Type="datetime" Mode="In" />
+          <Parameter Name="landing_time" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="flight_change_plane" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="airport">
+          <Parameter Name="flight_id" Type="int" Mode="In" />
+          <Parameter Name="plane_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="flight_change_team" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="airport">
+          <Parameter Name="flight_id" Type="int" Mode="In" />
+          <Parameter Name="team_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="flight_generate_next" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="airport">
+          <Parameter Name="flight_class_id" Type="int" Mode="In" />
+          <Parameter Name="starting_date" Type="date" Mode="In" />
+          <Parameter Name="team_id" Type="int" Mode="In" />
+          <Parameter Name="plane_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="flight_info1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="airport" StoreFunctionName="flight_info">
+          <Parameter Name="flight_id" Type="int" Mode="In" />
+          <Parameter Name="registered" Type="int" Mode="Out" />
+          <Parameter Name="capacity" Type="int" Mode="Out" />
+        </Function>
+        <Function Name="flight_landing_do" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="airport">
+          <Parameter Name="flight_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="flight_landing_move" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="airport">
+          <Parameter Name="flight_id" Type="int" Mode="In" />
+          <Parameter Name="delta" Type="time" Mode="In" />
+          <Parameter Name="reasont" Type="text" Mode="In" />
+        </Function>
+        <Function Name="flight_sortie_cancele" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="airport">
+          <Parameter Name="flight_id" Type="int" Mode="In" />
+          <Parameter Name="reasont" Type="text" Mode="In" />
+        </Function>
+        <Function Name="flight_sortie_do" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="airport">
+          <Parameter Name="flight_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="flight_sortie_move" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="airport">
+          <Parameter Name="flight_id" Type="int" Mode="In" />
+          <Parameter Name="delta" Type="time" Mode="In" />
+          <Parameter Name="reasont" Type="text" Mode="In" />
+        </Function>
+        <Function Name="get_next_flight_date" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="airport">
+          <Parameter Name="flight_class_id" Type="int" Mode="In" />
+          <Parameter Name="starting_date" Type="date" Mode="In" />
+          <Parameter Name="next_flight_date" Type="datetime" Mode="Out" />
+          <Parameter Name="next_flight_landing" Type="datetime" Mode="Out" />
+        </Function>
+        <Function Name="plane_inspection_report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="airport">
+          <Parameter Name="inspection_id" Type="int" Mode="In" />
+          <Parameter Name="conclusion_val" Type="enum" Mode="In" />
+          <Parameter Name="comment_val" Type="text" Mode="In" />
+        </Function>
+        <EntityContainer Name="airportModelStoreContainer">
+          <EntitySet Name="airline" EntityType="Self.airline" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="airport" EntityType="Self.airport" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="baggage" EntityType="Self.baggage" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="brigade" EntityType="Self.brigade" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="city" EntityType="Self.city" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="country" EntityType="Self.country" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="department" EntityType="Self.department" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="employee" EntityType="Self.employee" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="employee_type" EntityType="Self.employee_type" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="flight" EntityType="Self.flight" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="flight_class" EntityType="Self.flight_class" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="landing" EntityType="Self.landing" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="passenger" EntityType="Self.passenger" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="plane" EntityType="Self.plane" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="plane_inspections" EntityType="Self.plane_inspections" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="plane_inspections_ended" EntityType="Self.plane_inspections_ended" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="plane_model" EntityType="Self.plane_model" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="plane_repairs" EntityType="Self.plane_repairs" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="plane_repairs_ended" EntityType="Self.plane_repairs_ended" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="registration" EntityType="Self.registration" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="sortie" EntityType="Self.sortie" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="ticket" EntityType="Self.ticket" Schema="airport" store:Type="Tables" />
+          <EntitySet Name="airline_statistics" EntityType="Self.airline_statistics" store:Type="Views" store:Schema="airport">
+            <DefiningQuery>SELECT
+`airline_statistics`.`id`, 
+`airline_statistics`.`airline_name`, 
+`airline_statistics`.`avg_day_sortie_count`
+FROM `airline_statistics` AS `airline_statistics`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="brigade_list" EntityType="Self.brigade_list" store:Type="Views" store:Schema="airport">
+            <DefiningQuery>SELECT
+`brigade_list`.`brigade`, 
+`brigade_list`.`brigades`
+FROM `brigade_list` AS `brigade_list`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="delayed_landings" EntityType="Self.delayed_landings" store:Type="Views" store:Schema="airport">
+            <DefiningQuery>SELECT
+`delayed_landings`.`id`, 
+`delayed_landings`.`flight`, 
+`delayed_landings`.`state`, 
+`delayed_landings`.`delta_time`, 
+`delayed_landings`.`start`, 
+`delayed_landings`.`reason`
+FROM `delayed_landings` AS `delayed_landings`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="department_view" EntityType="Self.department_view" store:Type="Views" store:Schema="airport">
+            <DefiningQuery>SELECT
+`department_view`.`id`, 
+`department_view`.`departnent_name`, 
+`department_view`.`head_name`, 
+`department_view`.`head_lastname`, 
+`department_view`.`brigades`
+FROM `department_view` AS `department_view`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="employee_list" EntityType="Self.employee_list" store:Type="Views" store:Schema="airport">
+            <DefiningQuery>SELECT
+`employee_list`.`id`, 
+`employee_list`.`name`, 
+`employee_list`.`lastname`, 
+`employee_list`.`patronymic`, 
+`employee_list`.`phone`, 
+`employee_list`.`additional_phone`, 
+`employee_list`.`comment`, 
+`employee_list`.`type`, 
+`employee_list`.`brigade`, 
+`employee_list`.`airport`, 
+`employee_list`.`salary`, 
+`employee_list`.`childrencount`, 
+`employee_list`.`sex`
+FROM `employee_list` AS `employee_list`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="flight_class_stat" EntityType="Self.flight_class_stat" store:Type="Views" store:Schema="airport">
+            <DefiningQuery>SELECT
+`flight_class_stat`.`id`, 
+`flight_class_stat`.`plane_id`, 
+`flight_class_stat`.`plane_model_name`, 
+`flight_class_stat`.`team`, 
+`flight_class_stat`.`avg_passenger_capacity`, 
+`flight_class_stat`.`avg_bought`, 
+`flight_class_stat`.`avg_free`, 
+`flight_class_stat`.`avg_sortie_delta_time`, 
+`flight_class_stat`.`avg_delta_time`
+FROM `flight_class_stat` AS `flight_class_stat`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="flight_info" EntityType="Self.flight_info" store:Type="Views" store:Schema="airport">
+            <DefiningQuery>SELECT
+`flight_info`.`id`, 
+`flight_info`.`plane_id`, 
+`flight_info`.`plane_model_name`, 
+`flight_info`.`team`, 
+`flight_info`.`passenger_capacity`, 
+`flight_info`.`bought`, 
+`flight_info`.`free`, 
+`flight_info`.`sortie_start`, 
+`flight_info`.`sortie_delta_time`, 
+`flight_info`.`landing_start`, 
+`flight_info`.`landing_delta_time`, 
+`flight_info`.`flight_class`, 
+`flight_info`.`from`, 
+`flight_info`.`to`, 
+`flight_info`.`periodicity_type`, 
+`flight_info`.`time of departure`, 
+`flight_info`.`travel time`, 
+`flight_info`.`range`, 
+`flight_info`.`type`, 
+`flight_info`.`common_price`, 
+`flight_info`.`premium_price`, 
+`flight_info`.`airline_name`
+FROM `flight_info` AS `flight_info`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="flights_by_airline_in_day" EntityType="Self.flights_by_airline_in_day" store:Type="Views" store:Schema="airport">
+            <DefiningQuery>SELECT
+`flights_by_airline_in_day`.`id`, 
+`flights_by_airline_in_day`.`airline_name`, 
+`flights_by_airline_in_day`.`sortie`, 
+`flights_by_airline_in_day`.`sortie_count`
+FROM `flights_by_airline_in_day` AS `flights_by_airline_in_day`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="pilots_with_med_examination" EntityType="Self.pilots_with_med_examination" store:Type="Views" store:Schema="airport">
+            <DefiningQuery>SELECT
+`pilots_with_med_examination`.`id`, 
+`pilots_with_med_examination`.`name`, 
+`pilots_with_med_examination`.`lastname`, 
+`pilots_with_med_examination`.`patronymic`, 
+`pilots_with_med_examination`.`phone`, 
+`pilots_with_med_examination`.`additional_phone`, 
+`pilots_with_med_examination`.`comment`, 
+`pilots_with_med_examination`.`number_of_flights`, 
+`pilots_with_med_examination`.`hours_in_flights`, 
+`pilots_with_med_examination`.`hire_date`, 
+`pilots_with_med_examination`.`date_of_dismissal`, 
+`pilots_with_med_examination`.`city_of_residence`, 
+`pilots_with_med_examination`.`type`, 
+`pilots_with_med_examination`.`last_medical_examination`, 
+`pilots_with_med_examination`.`brigade`, 
+`pilots_with_med_examination`.`airport`, 
+`pilots_with_med_examination`.`salary`, 
+`pilots_with_med_examination`.`childrencount`, 
+`pilots_with_med_examination`.`sex`
+FROM `pilots_with_med_examination` AS `pilots_with_med_examination`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="pilots_without_med_examination" EntityType="Self.pilots_without_med_examination" store:Type="Views" store:Schema="airport">
+            <DefiningQuery>SELECT
+`pilots_without_med_examination`.`id`, 
+`pilots_without_med_examination`.`name`, 
+`pilots_without_med_examination`.`lastname`, 
+`pilots_without_med_examination`.`patronymic`, 
+`pilots_without_med_examination`.`phone`, 
+`pilots_without_med_examination`.`additional_phone`, 
+`pilots_without_med_examination`.`comment`, 
+`pilots_without_med_examination`.`number_of_flights`, 
+`pilots_without_med_examination`.`hours_in_flights`, 
+`pilots_without_med_examination`.`hire_date`, 
+`pilots_without_med_examination`.`date_of_dismissal`, 
+`pilots_without_med_examination`.`city_of_residence`, 
+`pilots_without_med_examination`.`type`, 
+`pilots_without_med_examination`.`last_medical_examination`, 
+`pilots_without_med_examination`.`brigade`, 
+`pilots_without_med_examination`.`airport`, 
+`pilots_without_med_examination`.`salary`, 
+`pilots_without_med_examination`.`childrencount`, 
+`pilots_without_med_examination`.`sex`
+FROM `pilots_without_med_examination` AS `pilots_without_med_examination`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="plane_info" EntityType="Self.plane_info" store:Type="Views" store:Schema="airport">
+            <DefiningQuery>SELECT
+`plane_info`.`id`, 
+`plane_info`.`airline`, 
+`plane_info`.`passenger_capacity`, 
+`plane_info`.`model`, 
+`plane_info`.`last_repair`, 
+`plane_info`.`last_repair_conclusion`, 
+`plane_info`.`last_inspection`, 
+`plane_info`.`last_inspections_conclusion`
+FROM `plane_info` AS `plane_info`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="planes" EntityType="Self.planes" store:Type="Views" store:Schema="airport">
+            <DefiningQuery>SELECT
+`planes`.`id`, 
+`planes`.`airline`, 
+`planes`.`passenger_capacity`, 
+`planes`.`model`
+FROM `planes` AS `planes`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="sorties_in_month" EntityType="Self.sorties_in_month" store:Type="Views" store:Schema="airport">
+            <DefiningQuery>SELECT
+`sorties_in_month`.`id`, 
+`sorties_in_month`.`plane_id`, 
+`sorties_in_month`.`plane_model_name`, 
+`sorties_in_month`.`team`, 
+`sorties_in_month`.`passenger_capacity`, 
+`sorties_in_month`.`bought`, 
+`sorties_in_month`.`free`, 
+`sorties_in_month`.`sortie_start`, 
+`sorties_in_month`.`sortie_delta_time`, 
+`sorties_in_month`.`landing_start`, 
+`sorties_in_month`.`landing_delta_time`
+FROM `sorties_in_month` AS `sorties_in_month`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="sorties_with_passengers" EntityType="Self.sorties_with_passengers" store:Type="Views" store:Schema="airport">
+            <DefiningQuery>SELECT
+`sorties_with_passengers`.`start`, 
+`sorties_with_passengers`.`name`, 
+`sorties_with_passengers`.`lastname`, 
+`sorties_with_passengers`.`place`, 
+`sorties_with_passengers`.`baggages count`
+FROM `sorties_with_passengers` AS `sorties_with_passengers`</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="asdfgdgfgfghf" Association="Self.asdfgdgfgfghf">
+            <End Role="flight_class" EntitySet="flight_class" />
+            <End Role="flight" EntitySet="flight" />
+          </AssociationSet>
+          <AssociationSet Name="asdgfbvbvcbc" Association="Self.asdgfbvbvcbc">
+            <End Role="country" EntitySet="country" />
+            <End Role="city" EntitySet="city" />
+          </AssociationSet>
+          <AssociationSet Name="bvcbvcbvcbvc" Association="Self.bvcbvcbvcbvc">
+            <End Role="ticket" EntitySet="ticket" />
+            <End Role="registration" EntitySet="registration" />
+          </AssociationSet>
+          <AssociationSet Name="bvcbvcbvcbvcbvcbvcb" Association="Self.bvcbvcbvcbvcbvcbvcb">
+            <End Role="employee_type" EntitySet="employee_type" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="cdcsdcsdsds" Association="Self.cdcsdcsdsds">
+            <End Role="city" EntitySet="city" />
+            <End Role="passenger" EntitySet="passenger" />
+          </AssociationSet>
+          <AssociationSet Name="ddfdfdsfdsfdsfds" Association="Self.ddfdfdsfdsfdsfds">
+            <End Role="flight" EntitySet="flight" />
+            <End Role="sortie" EntitySet="sortie" />
+          </AssociationSet>
+          <AssociationSet Name="department_ibfk_1" Association="Self.department_ibfk_1">
+            <End Role="employee_type" EntitySet="employee_type" />
+            <End Role="department" EntitySet="department" />
+          </AssociationSet>
+          <AssociationSet Name="dfdfasdsadsadsadsa" Association="Self.dfdfasdsadsadsadsa">
+            <End Role="airport" EntitySet="airport" />
+            <End Role="flight_class" EntitySet="flight_class" />
+          </AssociationSet>
+          <AssociationSet Name="dfdfdfdfsdfdsfds" Association="Self.dfdfdfdfsdfdsfds">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="plane_repairs" EntitySet="plane_repairs" />
+          </AssociationSet>
+          <AssociationSet Name="dfdfdsfdfds" Association="Self.dfdfdsfdfds">
+            <End Role="plane_repairs" EntitySet="plane_repairs" />
+            <End Role="plane_repairs_ended" EntitySet="plane_repairs_ended" />
+          </AssociationSet>
+          <AssociationSet Name="dfdfsdfdsfdsfds" Association="Self.dfdfsdfdsfdsfds">
+            <End Role="brigade" EntitySet="brigade" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="dfdsfdsfdsfds" Association="Self.dfdsfdsfdsfds">
+            <End Role="airline" EntitySet="airline" />
+            <End Role="plane" EntitySet="plane" />
+          </AssociationSet>
+          <AssociationSet Name="dfdsfsdfdsfdsd" Association="Self.dfdsfsdfdsfdsd">
+            <End Role="plane" EntitySet="plane" />
+            <End Role="plane_repairs" EntitySet="plane_repairs" />
+          </AssociationSet>
+          <AssociationSet Name="dfgfdgfdgfdgf" Association="Self.dfgfdgfdgfdgf">
+            <End Role="plane_inspections" EntitySet="plane_inspections" />
+            <End Role="plane_inspections_ended" EntitySet="plane_inspections_ended" />
+          </AssociationSet>
+          <AssociationSet Name="dfsdsdsadsadas" Association="Self.dfsdsdsadsadas">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="department" EntitySet="department" />
+          </AssociationSet>
+          <AssociationSet Name="dsadsadsadsa" Association="Self.dsadsadsadsa">
+            <End Role="sortie" EntitySet="sortie" />
+            <End Role="ticket" EntitySet="ticket" />
+          </AssociationSet>
+          <AssociationSet Name="dsfdsfdfdsfdsfds" Association="Self.dsfdsfdfdsfdsfds">
+            <End Role="plane_model" EntitySet="plane_model" />
+            <End Role="plane" EntitySet="plane" />
+          </AssociationSet>
+          <AssociationSet Name="dsfsdfdsfdsfsd" Association="Self.dsfsdfdsfdsfsd">
+            <End Role="flight" EntitySet="flight" />
+            <End Role="landing" EntitySet="landing" />
+          </AssociationSet>
+          <AssociationSet Name="dvsdasdasdsadsa" Association="Self.dvsdasdasdsadsa">
+            <End Role="airport" EntitySet="airport" />
+            <End Role="flight_class" EntitySet="flight_class" />
+          </AssociationSet>
+          <AssociationSet Name="fgdfgfdgfdgfd" Association="Self.fgdfgfdgfdgfd">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="plane_inspections" EntitySet="plane_inspections" />
+          </AssociationSet>
+          <AssociationSet Name="fkaiportairline" Association="Self.fkaiportairline">
+            <End Role="airline" EntitySet="airline" />
+            <End Role="airport" EntitySet="airport" />
+          </AssociationSet>
+          <AssociationSet Name="fkaiportcity" Association="Self.fkaiportcity">
+            <End Role="city" EntitySet="city" />
+            <End Role="airport" EntitySet="airport" />
+          </AssociationSet>
+          <AssociationSet Name="gfdgdfgdf" Association="Self.gfdgdfgdf">
+            <End Role="airport" EntitySet="airport" />
+            <End Role="department" EntitySet="department" />
+          </AssociationSet>
+          <AssociationSet Name="gfdgfdgfdgfdgfd" Association="Self.gfdgfdgfdgfdgfd">
+            <End Role="passenger" EntitySet="passenger" />
+            <End Role="ticket" EntitySet="ticket" />
+          </AssociationSet>
+          <AssociationSet Name="gfdgfdgfgdfgfdgdf" Association="Self.gfdgfdgfgdfgfdgdf">
+            <End Role="plane" EntitySet="plane" />
+            <End Role="plane_inspections" EntitySet="plane_inspections" />
+          </AssociationSet>
+          <AssociationSet Name="hjhjhjgddasdasdas" Association="Self.hjhjhjgddasdasdas">
+            <End Role="brigade" EntitySet="brigade" />
+            <End Role="flight" EntitySet="flight" />
+          </AssociationSet>
+          <AssociationSet Name="jhgjhggfhfd" Association="Self.jhgjhggfhfd">
+            <End Role="plane" EntitySet="plane" />
+            <End Role="flight" EntitySet="flight" />
+          </AssociationSet>
+          <AssociationSet Name="sadsadsdsadsadas" Association="Self.sadsadsdsadsadas">
+            <End Role="passenger" EntitySet="passenger" />
+            <End Role="baggage" EntitySet="baggage" />
+          </AssociationSet>
+          <AssociationSet Name="sdsdsfdfdsfdfdsfdsfds" Association="Self.sdsdsfdfdsfdfdsfdsfds">
+            <End Role="airport" EntitySet="airport" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="sfdfsdfsdfdsfsd" Association="Self.sfdfsdfsdfdsfsd">
+            <End Role="city" EntitySet="city" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="airportModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="airline">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="plane" Relationship="Self.dfdsfdsfdsfds" FromRole="airline" ToRole="plane" />
+          <NavigationProperty Name="airport" Relationship="Self.fkaiportairline" FromRole="airline" ToRole="airport" />
+        </EntityType>
+        <EntityType Name="airport">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="city" Type="Int32" Nullable="false" />
+          <Property Name="airline" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="airline1" Relationship="Self.fkaiportairline" FromRole="airport" ToRole="airline" />
+          <NavigationProperty Name="flight_class" Relationship="Self.dfdfasdsadsadsadsa" FromRole="airport" ToRole="flight_class" />
+          <NavigationProperty Name="flight_class1" Relationship="Self.dvsdasdasdsadsa" FromRole="airport" ToRole="flight_class" />
+          <NavigationProperty Name="city1" Relationship="Self.fkaiportcity" FromRole="airport" ToRole="city" />
+          <NavigationProperty Name="department" Relationship="Self.gfdgdfgdf" FromRole="airport" ToRole="department" />
+          <NavigationProperty Name="employee" Relationship="Self.sdsdsfdfdsfdfdsfdsfds" FromRole="airport" ToRole="employee" />
+        </EntityType>
+        <EntityType Name="baggage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="comment" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="owned_by" Type="Int32" Nullable="false" />
+          <Property Name="receipt_date" Type="DateTime" Nullable="false" />
+          <Property Name="return_date" Type="DateTime" />
+          <NavigationProperty Name="passenger" Relationship="Self.sadsadsdsadsadas" FromRole="baggage" ToRole="passenger" />
+        </EntityType>
+        <EntityType Name="brigade">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="comment" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="flight" Relationship="Self.hjhjhjgddasdasdas" FromRole="brigade" ToRole="flight" />
+          <NavigationProperty Name="employee" Relationship="airportModel.dfdfsdfdsfdsfds1" FromRole="brigade" ToRole="employee" />
+        </EntityType>
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="airport" Relationship="Self.fkaiportcity" FromRole="city" ToRole="airport" />
+          <NavigationProperty Name="country1" Relationship="Self.asdgfbvbvcbc" FromRole="city" ToRole="country" />
+          <NavigationProperty Name="passenger" Relationship="Self.cdcsdcsdsds" FromRole="city" ToRole="passenger" />
+          <NavigationProperty Name="employee" Relationship="Self.sfdfsdfsdfdsfsd" FromRole="city" ToRole="employee" />
+        </EntityType>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="city" Relationship="Self.asdgfbvbvcbc" FromRole="country" ToRole="city" />
+        </EntityType>
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="airport" Type="Int32" Nullable="false" />
+          <Property Name="head" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="airport1" Relationship="Self.gfdgdfgdf" FromRole="department" ToRole="airport" />
+          <NavigationProperty Name="employee_type" Relationship="Self.department_ibfk_1" FromRole="department" ToRole="employee_type" />
+          <NavigationProperty Name="employee" Relationship="Self.dfsdsdsadsadas" FromRole="department" ToRole="employee" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="additional_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="comment" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="number_of_flights" Type="Int32" />
+          <Property Name="hours_in_flights" Type="Int32" />
+          <Property Name="hire_date" Type="DateTime" Nullable="false" />
+          <Property Name="date_of_dismissal" Type="DateTime" />
+          <Property Name="city_of_residence" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <Property Name="last_medical_examination" Type="DateTime" Nullable="false" />
+          <Property Name="brigade" Type="Int32" Nullable="false" />
+          <Property Name="airport" Type="Int32" Nullable="false" />
+          <Property Name="salary" Type="Int32" Nullable="false" />
+          <Property Name="childrencount" Type="Int32" />
+          <Property Name="sex" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="airport1" Relationship="Self.sdsdsfdfdsfdfdsfdsfds" FromRole="employee" ToRole="airport" />
+          <NavigationProperty Name="city" Relationship="Self.sfdfsdfsdfdsfsd" FromRole="employee" ToRole="city" />
+          <NavigationProperty Name="department" Relationship="Self.dfsdsdsadsadas" FromRole="employee" ToRole="department" />
+          <NavigationProperty Name="employee_type" Relationship="Self.bvcbvcbvcbvcbvcbvcb" FromRole="employee" ToRole="employee_type" />
+          <NavigationProperty Name="plane_repairs" Relationship="Self.dfdfdfdfsdfdsfds" FromRole="employee" ToRole="plane_repairs" />
+          <NavigationProperty Name="plane_inspections" Relationship="Self.fgdfgfdgfdgfd" FromRole="employee" ToRole="plane_inspections" />
+          <NavigationProperty Name="brigade1" Relationship="airportModel.dfdfsdfdsfdsfds1" FromRole="employee" ToRole="brigade" />
+        </EntityType>
+        <EntityType Name="employee_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="department" Relationship="Self.department_ibfk_1" FromRole="employee_type" ToRole="department" />
+          <NavigationProperty Name="employee" Relationship="Self.bvcbvcbvcbvcbvcbvcb" FromRole="employee_type" ToRole="employee" />
+        </EntityType>
+        <EntityType Name="flight">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="team" Type="Int32" Nullable="false" />
+          <Property Name="flight_class" Type="Int32" Nullable="false" />
+          <Property Name="plane" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="brigade" Relationship="Self.hjhjhjgddasdasdas" FromRole="flight" ToRole="brigade" />
+          <NavigationProperty Name="flight_class1" Relationship="Self.asdfgdgfgfghf" FromRole="flight" ToRole="flight_class" />
+          <NavigationProperty Name="sortie" Relationship="Self.ddfdfdsfdsfdsfds" FromRole="flight" ToRole="sortie" />
+          <NavigationProperty Name="landing" Relationship="Self.dsfsdfdsfdsfsd" FromRole="flight" ToRole="landing" />
+          <NavigationProperty Name="plane1" Relationship="Self.jhgjhggfhfd" FromRole="flight" ToRole="plane" />
+        </EntityType>
+        <EntityType Name="flight_class">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="from" Type="Int32" Nullable="false" />
+          <Property Name="to" Type="Int32" Nullable="false" />
+          <Property Name="periodicity_type" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="period" Type="Int32" Nullable="false" />
+          <Property Name="time_of_departure" Type="Time" Nullable="false" />
+          <Property Name="travel_time" Type="Time" Nullable="false" />
+          <Property Name="range" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="common_price" Type="Int32" Nullable="false" />
+          <Property Name="premium_price" Type="Int32" />
+          <NavigationProperty Name="airport" Relationship="Self.dfdfasdsadsadsadsa" FromRole="flight_class" ToRole="airport" />
+          <NavigationProperty Name="airport1" Relationship="Self.dvsdasdasdsadsa" FromRole="flight_class" ToRole="airport" />
+          <NavigationProperty Name="flight" Relationship="Self.asdfgdgfgfghf" FromRole="flight_class" ToRole="flight" />
+        </EntityType>
+        <EntityType Name="landing">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="flight" Type="Int32" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="delta_time" Type="Time" />
+          <Property Name="start" Type="DateTime" Nullable="false" />
+          <Property Name="reason" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="flight1" Relationship="Self.dsfsdfdsfdsfsd" FromRole="landing" ToRole="flight" />
+        </EntityType>
+        <EntityType Name="passenger">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="additional_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="comment" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="Int32" Nullable="false" />
+          <Property Name="age" Type="SByte" Nullable="false" />
+          <Property Name="passport_num" Type="Int32" Nullable="false" />
+          <Property Name="internationlal_passport_num" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="baggage" Relationship="Self.sadsadsdsadsadas" FromRole="passenger" ToRole="baggage" />
+          <NavigationProperty Name="city1" Relationship="Self.cdcsdcsdsds" FromRole="passenger" ToRole="city" />
+          <NavigationProperty Name="ticket" Relationship="Self.gfdgfdgfdgfdgfd" FromRole="passenger" ToRole="ticket" />
+        </EntityType>
+        <EntityType Name="plane">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="airline" Type="Int32" Nullable="false" />
+          <Property Name="model" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="airline1" Relationship="Self.dfdsfdsfdsfds" FromRole="plane" ToRole="airline" />
+          <NavigationProperty Name="flight" Relationship="Self.jhgjhggfhfd" FromRole="plane" ToRole="flight" />
+          <NavigationProperty Name="plane_repairs" Relationship="Self.dfdsfsdfdsfdsd" FromRole="plane" ToRole="plane_repairs" />
+          <NavigationProperty Name="plane_model" Relationship="Self.dsfdsfdfdsfdsfds" FromRole="plane" ToRole="plane_model" />
+          <NavigationProperty Name="plane_inspections" Relationship="Self.gfdgfdgfgdfgfdgdf" FromRole="plane" ToRole="plane_inspections" />
+        </EntityType>
+        <EntityType Name="plane_inspections">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="scheduled_date" Type="DateTime" Nullable="false" />
+          <Property Name="responsible" Type="Int32" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="plane" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="employee" Relationship="Self.fgdfgfdgfdgfd" FromRole="plane_inspections" ToRole="employee" />
+          <NavigationProperty Name="plane1" Relationship="Self.gfdgfdgfgdfgfdgdf" FromRole="plane_inspections" ToRole="plane" />
+          <NavigationProperty Name="plane_inspections_ended" Relationship="Self.dfgfdgfdgfdgf" FromRole="plane_inspections" ToRole="plane_inspections_ended" />
+        </EntityType>
+        <EntityType Name="plane_inspections_ended">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="inspection" Type="Int32" Nullable="false" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" />
+          <Property Name="conclusion" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="plane_inspections" Relationship="Self.dfgfdgfdgfdgf" FromRole="plane_inspections_ended" ToRole="plane_inspections" />
+        </EntityType>
+        <EntityType Name="plane_model">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="passenger_capacity" Type="Int16" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="plane" Relationship="Self.dsfdsfdfdsfdsfds" FromRole="plane_model" ToRole="plane" />
+        </EntityType>
+        <EntityType Name="plane_repairs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="plane" Type="Int32" Nullable="false" />
+          <Property Name="scheduled_date" Type="DateTime" Nullable="false" />
+          <Property Name="responsible" Type="Int32" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="employee" Relationship="Self.dfdfdfdfsdfdsfds" FromRole="plane_repairs" ToRole="employee" />
+          <NavigationProperty Name="plane1" Relationship="Self.dfdsfsdfdsfdsd" FromRole="plane_repairs" ToRole="plane" />
+          <NavigationProperty Name="plane_repairs_ended" Relationship="Self.dfdfdsfdfds" FromRole="plane_repairs" ToRole="plane_repairs_ended" />
+        </EntityType>
+        <EntityType Name="plane_repairs_ended">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" />
+          <Property Name="conclusion" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="repair" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="plane_repairs" Relationship="Self.dfdfdsfdfds" FromRole="plane_repairs_ended" ToRole="plane_repairs" />
+        </EntityType>
+        <EntityType Name="registration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ticket" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ticket1" Relationship="Self.bvcbvcbvcbvc" FromRole="registration" ToRole="ticket" />
+        </EntityType>
+        <EntityType Name="sortie">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="flight" Type="Int32" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="delta_time" Type="Time" />
+          <Property Name="start" Type="DateTime" Nullable="false" />
+          <Property Name="reason" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="flight1" Relationship="Self.ddfdfdsfdsfdsfds" FromRole="sortie" ToRole="flight" />
+          <NavigationProperty Name="ticket" Relationship="Self.dsadsadsadsa" FromRole="sortie" ToRole="ticket" />
+        </EntityType>
+        <EntityType Name="ticket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="flight" Type="Int32" Nullable="false" />
+          <Property Name="owner" Type="Int32" Nullable="false" />
+          <Property Name="place" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="passenger" Relationship="Self.gfdgfdgfdgfdgfd" FromRole="ticket" ToRole="passenger" />
+          <NavigationProperty Name="registration" Relationship="Self.bvcbvcbvcbvc" FromRole="ticket" ToRole="registration" />
+          <NavigationProperty Name="sortie" Relationship="Self.dsadsadsadsa" FromRole="ticket" ToRole="sortie" />
+        </EntityType>
+        <EntityType Name="brigade_list">
+          <Key>
+            <PropertyRef Name="brigade" />
+          </Key>
+          <Property Name="brigade" Type="Int32" Nullable="false" />
+          <Property Name="brigades" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="delayed_landings">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="flight" />
+            <PropertyRef Name="state" />
+            <PropertyRef Name="start" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="flight" Type="Int32" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="delta_time" Type="Time" />
+          <Property Name="start" Type="DateTime" Nullable="false" />
+          <Property Name="reason" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="employee_list">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="phone" />
+            <PropertyRef Name="type" />
+            <PropertyRef Name="brigade" />
+            <PropertyRef Name="airport" />
+            <PropertyRef Name="salary" />
+            <PropertyRef Name="sex" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="additional_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="comment" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <Property Name="brigade" Type="Int32" Nullable="false" />
+          <Property Name="airport" Type="Int32" Nullable="false" />
+          <Property Name="salary" Type="Int32" Nullable="false" />
+          <Property Name="childrencount" Type="Int32" />
+          <Property Name="sex" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pilots_with_med_examination">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="phone" />
+            <PropertyRef Name="hire_date" />
+            <PropertyRef Name="city_of_residence" />
+            <PropertyRef Name="type" />
+            <PropertyRef Name="last_medical_examination" />
+            <PropertyRef Name="brigade" />
+            <PropertyRef Name="airport" />
+            <PropertyRef Name="salary" />
+            <PropertyRef Name="sex" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="additional_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="comment" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="number_of_flights" Type="Int32" />
+          <Property Name="hours_in_flights" Type="Int32" />
+          <Property Name="hire_date" Type="DateTime" Nullable="false" />
+          <Property Name="date_of_dismissal" Type="DateTime" />
+          <Property Name="city_of_residence" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <Property Name="last_medical_examination" Type="DateTime" Nullable="false" />
+          <Property Name="brigade" Type="Int32" Nullable="false" />
+          <Property Name="airport" Type="Int32" Nullable="false" />
+          <Property Name="salary" Type="Int32" Nullable="false" />
+          <Property Name="childrencount" Type="Int32" />
+          <Property Name="sex" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pilots_without_med_examination">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="phone" />
+            <PropertyRef Name="hire_date" />
+            <PropertyRef Name="city_of_residence" />
+            <PropertyRef Name="type" />
+            <PropertyRef Name="last_medical_examination" />
+            <PropertyRef Name="brigade" />
+            <PropertyRef Name="airport" />
+            <PropertyRef Name="salary" />
+            <PropertyRef Name="sex" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="additional_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="comment" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="number_of_flights" Type="Int32" />
+          <Property Name="hours_in_flights" Type="Int32" />
+          <Property Name="hire_date" Type="DateTime" Nullable="false" />
+          <Property Name="date_of_dismissal" Type="DateTime" />
+          <Property Name="city_of_residence" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <Property Name="last_medical_examination" Type="DateTime" Nullable="false" />
+          <Property Name="brigade" Type="Int32" Nullable="false" />
+          <Property Name="airport" Type="Int32" Nullable="false" />
+          <Property Name="salary" Type="Int32" Nullable="false" />
+          <Property Name="childrencount" Type="Int32" />
+          <Property Name="sex" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="plane_info">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="airline" />
+            <PropertyRef Name="passenger_capacity" />
+            <PropertyRef Name="model" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="airline" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="passenger_capacity" Type="Int16" Nullable="false" />
+          <Property Name="model" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_repair" Type="DateTime" />
+          <Property Name="last_repair_conclusion" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+          <Property Name="last_inspection" Type="DateTime" />
+          <Property Name="last_inspections_conclusion" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="planes">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="airline" />
+            <PropertyRef Name="passenger_capacity" />
+            <PropertyRef Name="model" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="airline" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="passenger_capacity" Type="Int16" Nullable="false" />
+          <Property Name="model" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sorties_with_passengers">
+          <Key>
+            <PropertyRef Name="start" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="place" />
+            <PropertyRef Name="baggages_count" />
+          </Key>
+          <Property Name="start" Type="DateTime" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="place" Type="Int32" Nullable="false" />
+          <Property Name="baggages_count" Type="Int64" Nullable="false" />
+        </EntityType>
+        <Association Name="dfdsfdsfdsfds">
+          <End Role="airline" Type="Self.airline" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="plane" Type="Self.plane" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="airline">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plane">
+              <PropertyRef Name="airline" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkaiportairline">
+          <End Role="airline" Type="Self.airline" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="airport" Type="Self.airport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="airline">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="airport">
+              <PropertyRef Name="airline" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dfdfasdsadsadsadsa">
+          <End Role="airport" Type="Self.airport" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="flight_class" Type="Self.flight_class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="airport">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="flight_class">
+              <PropertyRef Name="to" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dvsdasdasdsadsa">
+          <End Role="airport" Type="Self.airport" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="flight_class" Type="Self.flight_class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="airport">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="flight_class">
+              <PropertyRef Name="from" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkaiportcity">
+          <End Role="city" Type="Self.city" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="airport" Type="Self.airport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="airport">
+              <PropertyRef Name="city" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gfdgdfgdf">
+          <End Role="airport" Type="Self.airport" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="department" Type="Self.department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="airport">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="department">
+              <PropertyRef Name="airport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sdsdsfdfdsfdfdsfdsfds">
+          <End Role="airport" Type="Self.airport" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="airport">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="airport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dfdfsdfdsfdsfds">
+          <End Role="baggage" Type="Self.baggage" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="baggage">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="brigade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sadsadsdsadsadas">
+          <End Role="passenger" Type="Self.passenger" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="baggage" Type="Self.baggage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="passenger">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="baggage">
+              <PropertyRef Name="owned_by" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="hjhjhjgddasdasdas">
+          <End Role="brigade" Type="Self.brigade" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="flight" Type="Self.flight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="brigade">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="flight">
+              <PropertyRef Name="team" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="asdgfbvbvcbc">
+          <End Role="country" Type="Self.country" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="city" Type="Self.city" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="country">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="city">
+              <PropertyRef Name="country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="cdcsdcsdsds">
+          <End Role="city" Type="Self.city" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="passenger" Type="Self.passenger" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="passenger">
+              <PropertyRef Name="city" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sfdfsdfsdfdsfsd">
+          <End Role="city" Type="Self.city" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="city_of_residence" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="department_ibfk_1">
+          <End Role="employee_type" Type="Self.employee_type" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="department" Type="Self.department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="department">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dfsdsdsadsadas">
+          <End Role="employee" Type="Self.employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="department" Type="Self.department" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="department">
+              <PropertyRef Name="head" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="bvcbvcbvcbvcbvcbvcb">
+          <End Role="employee_type" Type="Self.employee_type" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="employee" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dfdfdfdfsdfdsfds">
+          <End Role="employee" Type="Self.employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="plane_repairs" Type="Self.plane_repairs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plane_repairs">
+              <PropertyRef Name="responsible" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fgdfgfdgfdgfd">
+          <End Role="employee" Type="Self.employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="plane_inspections" Type="Self.plane_inspections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employee">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plane_inspections">
+              <PropertyRef Name="responsible" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="asdfgdgfgfghf">
+          <End Role="flight_class" Type="Self.flight_class" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="flight" Type="Self.flight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="flight_class">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="flight">
+              <PropertyRef Name="flight_class" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ddfdfdsfdsfdsfds">
+          <End Role="flight" Type="Self.flight" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="sortie" Type="Self.sortie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="flight">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sortie">
+              <PropertyRef Name="flight" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dsfsdfdsfdsfsd">
+          <End Role="flight" Type="Self.flight" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="landing" Type="Self.landing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="flight">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="landing">
+              <PropertyRef Name="flight" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="jhgjhggfhfd">
+          <End Role="plane" Type="Self.plane" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="flight" Type="Self.flight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="plane">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="flight">
+              <PropertyRef Name="plane" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gfdgfdgfdgfdgfd">
+          <End Role="passenger" Type="Self.passenger" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ticket" Type="Self.ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="passenger">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ticket">
+              <PropertyRef Name="owner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dfdsfsdfdsfdsd">
+          <End Role="plane" Type="Self.plane" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="plane_repairs" Type="Self.plane_repairs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="plane">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plane_repairs">
+              <PropertyRef Name="plane" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dsfdsfdfdsfdsfds">
+          <End Role="plane_model" Type="Self.plane_model" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="plane" Type="Self.plane" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="plane_model">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plane">
+              <PropertyRef Name="model" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="gfdgfdgfgdfgfdgdf">
+          <End Role="plane" Type="Self.plane" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="plane_inspections" Type="Self.plane_inspections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="plane">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plane_inspections">
+              <PropertyRef Name="plane" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dfgfdgfdgfdgf">
+          <End Role="plane_inspections" Type="Self.plane_inspections" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="plane_inspections_ended" Type="Self.plane_inspections_ended" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="plane_inspections">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plane_inspections_ended">
+              <PropertyRef Name="inspection" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dfdfdsfdfds">
+          <End Role="plane_repairs" Type="Self.plane_repairs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="plane_repairs_ended" Type="Self.plane_repairs_ended" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="plane_repairs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="plane_repairs_ended">
+              <PropertyRef Name="repair" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="bvcbvcbvcbvc">
+          <End Role="ticket" Type="Self.ticket" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="registration" Type="Self.registration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ticket">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="registration">
+              <PropertyRef Name="ticket" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dsadsadsadsa">
+          <End Role="sortie" Type="Self.sortie" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ticket" Type="Self.ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sortie">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ticket">
+              <PropertyRef Name="flight" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="airportEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="airline" EntityType="Self.airline" />
+          <EntitySet Name="airport" EntityType="Self.airport" />
+          <EntitySet Name="baggage" EntityType="Self.baggage" />
+          <EntitySet Name="brigade" EntityType="Self.brigade" />
+          <EntitySet Name="city" EntityType="Self.city" />
+          <EntitySet Name="country" EntityType="Self.country" />
+          <EntitySet Name="department" EntityType="Self.department" />
+          <EntitySet Name="employee" EntityType="Self.employee" />
+          <EntitySet Name="employee_type" EntityType="Self.employee_type" />
+          <EntitySet Name="flight" EntityType="Self.flight" />
+          <EntitySet Name="flight_class" EntityType="Self.flight_class" />
+          <EntitySet Name="landing" EntityType="Self.landing" />
+          <EntitySet Name="passenger" EntityType="Self.passenger" />
+          <EntitySet Name="plane" EntityType="Self.plane" />
+          <EntitySet Name="plane_inspections" EntityType="Self.plane_inspections" />
+          <EntitySet Name="plane_inspections_ended" EntityType="Self.plane_inspections_ended" />
+          <EntitySet Name="plane_model" EntityType="Self.plane_model" />
+          <EntitySet Name="plane_repairs" EntityType="Self.plane_repairs" />
+          <EntitySet Name="plane_repairs_ended" EntityType="Self.plane_repairs_ended" />
+          <EntitySet Name="registration" EntityType="Self.registration" />
+          <EntitySet Name="sortie" EntityType="Self.sortie" />
+          <EntitySet Name="ticket" EntityType="Self.ticket" />
+          <EntitySet Name="brigade_list" EntityType="Self.brigade_list" />
+          <EntitySet Name="delayed_landings" EntityType="Self.delayed_landings" />
+          <EntitySet Name="employee_list" EntityType="Self.employee_list" />
+          <EntitySet Name="pilots_with_med_examination" EntityType="Self.pilots_with_med_examination" />
+          <EntitySet Name="pilots_without_med_examination" EntityType="Self.pilots_without_med_examination" />
+          <EntitySet Name="plane_info" EntityType="Self.plane_info" />
+          <EntitySet Name="planes" EntityType="Self.planes" />
+          <EntitySet Name="sorties_with_passengers" EntityType="Self.sorties_with_passengers" />
+          <AssociationSet Name="dfdsfdsfdsfds" Association="Self.dfdsfdsfdsfds">
+            <End Role="airline" EntitySet="airline" />
+            <End Role="plane" EntitySet="plane" />
+          </AssociationSet>
+          <AssociationSet Name="fkaiportairline" Association="Self.fkaiportairline">
+            <End Role="airline" EntitySet="airline" />
+            <End Role="airport" EntitySet="airport" />
+          </AssociationSet>
+          <AssociationSet Name="dfdfasdsadsadsadsa" Association="Self.dfdfasdsadsadsadsa">
+            <End Role="airport" EntitySet="airport" />
+            <End Role="flight_class" EntitySet="flight_class" />
+          </AssociationSet>
+          <AssociationSet Name="dvsdasdasdsadsa" Association="Self.dvsdasdasdsadsa">
+            <End Role="airport" EntitySet="airport" />
+            <End Role="flight_class" EntitySet="flight_class" />
+          </AssociationSet>
+          <AssociationSet Name="fkaiportcity" Association="Self.fkaiportcity">
+            <End Role="city" EntitySet="city" />
+            <End Role="airport" EntitySet="airport" />
+          </AssociationSet>
+          <AssociationSet Name="gfdgdfgdf" Association="Self.gfdgdfgdf">
+            <End Role="airport" EntitySet="airport" />
+            <End Role="department" EntitySet="department" />
+          </AssociationSet>
+          <AssociationSet Name="sdsdsfdfdsfdfdsfdsfds" Association="Self.sdsdsfdfdsfdfdsfdsfds">
+            <End Role="airport" EntitySet="airport" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="dfdfsdfdsfdsfds" Association="Self.dfdfsdfdsfdsfds">
+            <End Role="baggage" EntitySet="baggage" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="sadsadsdsadsadas" Association="Self.sadsadsdsadsadas">
+            <End Role="passenger" EntitySet="passenger" />
+            <End Role="baggage" EntitySet="baggage" />
+          </AssociationSet>
+          <AssociationSet Name="hjhjhjgddasdasdas" Association="Self.hjhjhjgddasdasdas">
+            <End Role="brigade" EntitySet="brigade" />
+            <End Role="flight" EntitySet="flight" />
+          </AssociationSet>
+          <AssociationSet Name="asdgfbvbvcbc" Association="Self.asdgfbvbvcbc">
+            <End Role="country" EntitySet="country" />
+            <End Role="city" EntitySet="city" />
+          </AssociationSet>
+          <AssociationSet Name="cdcsdcsdsds" Association="Self.cdcsdcsdsds">
+            <End Role="city" EntitySet="city" />
+            <End Role="passenger" EntitySet="passenger" />
+          </AssociationSet>
+          <AssociationSet Name="sfdfsdfsdfdsfsd" Association="Self.sfdfsdfsdfdsfsd">
+            <End Role="city" EntitySet="city" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="department_ibfk_1" Association="Self.department_ibfk_1">
+            <End Role="employee_type" EntitySet="employee_type" />
+            <End Role="department" EntitySet="department" />
+          </AssociationSet>
+          <AssociationSet Name="dfsdsdsadsadas" Association="Self.dfsdsdsadsadas">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="department" EntitySet="department" />
+          </AssociationSet>
+          <AssociationSet Name="bvcbvcbvcbvcbvcbvcb" Association="Self.bvcbvcbvcbvcbvcbvcb">
+            <End Role="employee_type" EntitySet="employee_type" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+          <AssociationSet Name="dfdfdfdfsdfdsfds" Association="Self.dfdfdfdfsdfdsfds">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="plane_repairs" EntitySet="plane_repairs" />
+          </AssociationSet>
+          <AssociationSet Name="fgdfgfdgfdgfd" Association="Self.fgdfgfdgfdgfd">
+            <End Role="employee" EntitySet="employee" />
+            <End Role="plane_inspections" EntitySet="plane_inspections" />
+          </AssociationSet>
+          <AssociationSet Name="asdfgdgfgfghf" Association="Self.asdfgdgfgfghf">
+            <End Role="flight_class" EntitySet="flight_class" />
+            <End Role="flight" EntitySet="flight" />
+          </AssociationSet>
+          <AssociationSet Name="ddfdfdsfdsfdsfds" Association="Self.ddfdfdsfdsfdsfds">
+            <End Role="flight" EntitySet="flight" />
+            <End Role="sortie" EntitySet="sortie" />
+          </AssociationSet>
+          <AssociationSet Name="dsfsdfdsfdsfsd" Association="Self.dsfsdfdsfdsfsd">
+            <End Role="flight" EntitySet="flight" />
+            <End Role="landing" EntitySet="landing" />
+          </AssociationSet>
+          <AssociationSet Name="jhgjhggfhfd" Association="Self.jhgjhggfhfd">
+            <End Role="plane" EntitySet="plane" />
+            <End Role="flight" EntitySet="flight" />
+          </AssociationSet>
+          <AssociationSet Name="gfdgfdgfdgfdgfd" Association="Self.gfdgfdgfdgfdgfd">
+            <End Role="passenger" EntitySet="passenger" />
+            <End Role="ticket" EntitySet="ticket" />
+          </AssociationSet>
+          <AssociationSet Name="dfdsfsdfdsfdsd" Association="Self.dfdsfsdfdsfdsd">
+            <End Role="plane" EntitySet="plane" />
+            <End Role="plane_repairs" EntitySet="plane_repairs" />
+          </AssociationSet>
+          <AssociationSet Name="dsfdsfdfdsfdsfds" Association="Self.dsfdsfdfdsfdsfds">
+            <End Role="plane_model" EntitySet="plane_model" />
+            <End Role="plane" EntitySet="plane" />
+          </AssociationSet>
+          <AssociationSet Name="gfdgfdgfgdfgfdgdf" Association="Self.gfdgfdgfgdfgfdgdf">
+            <End Role="plane" EntitySet="plane" />
+            <End Role="plane_inspections" EntitySet="plane_inspections" />
+          </AssociationSet>
+          <AssociationSet Name="dfgfdgfdgfdgf" Association="Self.dfgfdgfdgfdgf">
+            <End Role="plane_inspections" EntitySet="plane_inspections" />
+            <End Role="plane_inspections_ended" EntitySet="plane_inspections_ended" />
+          </AssociationSet>
+          <AssociationSet Name="dfdfdsfdfds" Association="Self.dfdfdsfdfds">
+            <End Role="plane_repairs" EntitySet="plane_repairs" />
+            <End Role="plane_repairs_ended" EntitySet="plane_repairs_ended" />
+          </AssociationSet>
+          <AssociationSet Name="bvcbvcbvcbvc" Association="Self.bvcbvcbvcbvc">
+            <End Role="ticket" EntitySet="ticket" />
+            <End Role="registration" EntitySet="registration" />
+          </AssociationSet>
+          <AssociationSet Name="dsadsadsadsa" Association="Self.dsadsadsadsa">
+            <End Role="sortie" EntitySet="sortie" />
+            <End Role="ticket" EntitySet="ticket" />
+          </AssociationSet>
+          <FunctionImport Name="flight_add">
+            <Parameter Name="team_id" Mode="In" Type="Int32" />
+            <Parameter Name="flight_class_id" Mode="In" Type="Int32" />
+            <Parameter Name="plane_id" Mode="In" Type="Int32" />
+            <Parameter Name="sortie_time" Mode="In" Type="DateTime" />
+            <Parameter Name="landing_time" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="flight_change_plane">
+            <Parameter Name="flight_id" Mode="In" Type="Int32" />
+            <Parameter Name="plane_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="flight_change_team">
+            <Parameter Name="flight_id" Mode="In" Type="Int32" />
+            <Parameter Name="team_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="flight_generate_next">
+            <Parameter Name="flight_class_id" Mode="In" Type="Int32" />
+            <Parameter Name="starting_date" Mode="In" Type="DateTime" />
+            <Parameter Name="team_id" Mode="In" Type="Int32" />
+            <Parameter Name="plane_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="flight_landing_do">
+          <Parameter Name="flight_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="flight_landing_move">
+            <Parameter Name="flight_id" Mode="In" Type="Int32" />
+            <Parameter Name="delta" Mode="In" Type="Time" />
+            <Parameter Name="reasont" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="flight_sortie_cancele">
+            <Parameter Name="flight_id" Mode="In" Type="Int32" />
+            <Parameter Name="reasont" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="flight_sortie_move">
+            <Parameter Name="flight_id" Mode="In" Type="Int32" />
+            <Parameter Name="delta" Mode="In" Type="Time" />
+            <Parameter Name="reasont" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="plane_inspection_report">
+            <Parameter Name="inspection_id" Mode="In" Type="Int32" />
+            <Parameter Name="conclusion_val" Mode="In" Type="String" />
+            <Parameter Name="comment_val" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="flight_sortie_do">
+          <Parameter Name="flight_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <AssociationSet Name="dfdfsdfdsfdsfds1" Association="airportModel.dfdfsdfdsfdsfds1">
+            <End Role="brigade" EntitySet="brigade" />
+            <End Role="employee" EntitySet="employee" />
+          </AssociationSet>
+          <EntitySet Name="department_view" EntityType="airportModel.department_view" />
+          <EntitySet Name="airline_statistics" EntityType="airportModel.airline_statistics" />
+          <EntitySet Name="flight_class_stat" EntityType="airportModel.flight_class_stat" />
+          <EntitySet Name="flight_info" EntityType="airportModel.flight_info" />
+          <EntitySet Name="flights_by_airline_in_day" EntityType="airportModel.flights_by_airline_in_day" />
+          <EntitySet Name="sorties_in_month" EntityType="airportModel.sorties_in_month" />
+        </EntityContainer>
+        <Association Name="dfdfsdfdsfdsfds1">
+          <End Type="airportModel.brigade" Role="brigade" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="airportModel.employee" Role="employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="brigade">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employee">
+              <PropertyRef Name="brigade" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="department_view">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="departnent_name" />
+            <PropertyRef Name="head_name" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="departnent_name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="head_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="head_lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="brigades" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="airline_statistics">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="airline_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="avg_day_sortie_count" Type="Decimal" />
+        </EntityType>
+        <EntityType Name="flight_class_stat">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="team" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="plane_id" Type="Int32" />
+          <Property Name="plane_model_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="team" Type="Int32" Nullable="false" />
+          <Property Name="avg_passenger_capacity" Type="Decimal" />
+          <Property Name="avg_bought" Type="Decimal" />
+          <Property Name="avg_free" Type="Decimal" />
+          <Property Name="avg_sortie_delta_time" Type="Double" />
+          <Property Name="avg_delta_time" Type="Double" />
+        </EntityType>
+        <EntityType Name="flight_info">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="team" />
+            <PropertyRef Name="bought" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="plane_id" Type="Int32" />
+          <Property Name="plane_model_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="team" Type="Int32" Nullable="false" />
+          <Property Name="passenger_capacity" Type="Int16" />
+          <Property Name="bought" Type="Int64" Nullable="false" />
+          <Property Name="free" Type="Int64" />
+          <Property Name="sortie_start" Type="DateTime" />
+          <Property Name="sortie_delta_time" Type="Time" />
+          <Property Name="landing_start" Type="DateTime" />
+          <Property Name="landing_delta_time" Type="Time" />
+          <Property Name="flight_class" Type="Int32" />
+          <Property Name="from" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="to" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="periodicity_type" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+          <Property Name="time_of_departure" Type="Time" />
+          <Property Name="travel_time" Type="Time" />
+          <Property Name="range" Type="Int32" />
+          <Property Name="type" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+          <Property Name="common_price" Type="Int32" />
+          <Property Name="premium_price" Type="Int32" />
+          <Property Name="airline_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="flights_by_airline_in_day">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="sortie_count" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="airline_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sortie" Type="DateTime" />
+          <Property Name="sortie_count" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sorties_in_month">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="team" />
+            <PropertyRef Name="bought" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="plane_id" Type="Int32" />
+          <Property Name="plane_model_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="team" Type="Int32" Nullable="false" />
+          <Property Name="passenger_capacity" Type="Int16" />
+          <Property Name="bought" Type="Int64" Nullable="false" />
+          <Property Name="free" Type="Int64" />
+          <Property Name="sortie_start" Type="DateTime" />
+          <Property Name="sortie_delta_time" Type="Time" />
+          <Property Name="landing_start" Type="DateTime" />
+          <Property Name="landing_delta_time" Type="Time" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="airportModelStoreContainer" CdmEntityContainer="airportEntities1">
+          <EntitySetMapping Name="airline">
+            <EntityTypeMapping TypeName="airportModel.airline">
+              <MappingFragment StoreEntitySet="airline">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="airport">
+            <EntityTypeMapping TypeName="airportModel.airport">
+              <MappingFragment StoreEntitySet="airport">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="airline" ColumnName="airline" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="baggage">
+            <EntityTypeMapping TypeName="airportModel.baggage">
+              <MappingFragment StoreEntitySet="baggage">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="owned_by" ColumnName="owned_by" />
+                <ScalarProperty Name="receipt_date" ColumnName="receipt_date" />
+                <ScalarProperty Name="return_date" ColumnName="return_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="brigade">
+            <EntityTypeMapping TypeName="airportModel.brigade">
+              <MappingFragment StoreEntitySet="brigade">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="city">
+            <EntityTypeMapping TypeName="airportModel.city">
+              <MappingFragment StoreEntitySet="city">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="country" ColumnName="country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="country">
+            <EntityTypeMapping TypeName="airportModel.country">
+              <MappingFragment StoreEntitySet="country">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="department">
+            <EntityTypeMapping TypeName="airportModel.department">
+              <MappingFragment StoreEntitySet="department">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="airport" ColumnName="airport" />
+                <ScalarProperty Name="head" ColumnName="head" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employee">
+            <EntityTypeMapping TypeName="airportModel.employee">
+              <MappingFragment StoreEntitySet="employee">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="additional_phone" ColumnName="additional_phone" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="number_of_flights" ColumnName="number_of_flights" />
+                <ScalarProperty Name="hours_in_flights" ColumnName="hours_in_flights" />
+                <ScalarProperty Name="hire_date" ColumnName="hire_date" />
+                <ScalarProperty Name="date_of_dismissal" ColumnName="date_of_dismissal" />
+                <ScalarProperty Name="city_of_residence" ColumnName="city_of_residence" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="last_medical_examination" ColumnName="last_medical_examination" />
+                <ScalarProperty Name="brigade" ColumnName="brigade" />
+                <ScalarProperty Name="airport" ColumnName="airport" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="childrencount" ColumnName="childrencount" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employee_type">
+            <EntityTypeMapping TypeName="airportModel.employee_type">
+              <MappingFragment StoreEntitySet="employee_type">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="flight">
+            <EntityTypeMapping TypeName="airportModel.flight">
+              <MappingFragment StoreEntitySet="flight">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="team" ColumnName="team" />
+                <ScalarProperty Name="flight_class" ColumnName="flight_class" />
+                <ScalarProperty Name="plane" ColumnName="plane" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="flight_class">
+            <EntityTypeMapping TypeName="airportModel.flight_class">
+              <MappingFragment StoreEntitySet="flight_class">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="from" ColumnName="from" />
+                <ScalarProperty Name="to" ColumnName="to" />
+                <ScalarProperty Name="periodicity_type" ColumnName="periodicity_type" />
+                <ScalarProperty Name="period" ColumnName="period" />
+                <ScalarProperty Name="time_of_departure" ColumnName="time of departure" />
+                <ScalarProperty Name="travel_time" ColumnName="travel time" />
+                <ScalarProperty Name="range" ColumnName="range" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="common_price" ColumnName="common_price" />
+                <ScalarProperty Name="premium_price" ColumnName="premium_price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="landing">
+            <EntityTypeMapping TypeName="airportModel.landing">
+              <MappingFragment StoreEntitySet="landing">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="flight" ColumnName="flight" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="delta_time" ColumnName="delta_time" />
+                <ScalarProperty Name="start" ColumnName="start" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="passenger">
+            <EntityTypeMapping TypeName="airportModel.passenger">
+              <MappingFragment StoreEntitySet="passenger">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="additional_phone" ColumnName="additional_phone" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="passport_num" ColumnName="passport_num" />
+                <ScalarProperty Name="internationlal_passport_num" ColumnName="internationlal_passport_num" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="plane">
+            <EntityTypeMapping TypeName="airportModel.plane">
+              <MappingFragment StoreEntitySet="plane">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="airline" ColumnName="airline" />
+                <ScalarProperty Name="model" ColumnName="model" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="plane_inspections">
+            <EntityTypeMapping TypeName="airportModel.plane_inspections">
+              <MappingFragment StoreEntitySet="plane_inspections">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="scheduled_date" ColumnName="scheduled_date" />
+                <ScalarProperty Name="responsible" ColumnName="responsible" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="plane" ColumnName="plane" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="plane_inspections_ended">
+            <EntityTypeMapping TypeName="airportModel.plane_inspections_ended">
+              <MappingFragment StoreEntitySet="plane_inspections_ended">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="inspection" ColumnName="inspection" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="conclusion" ColumnName="conclusion" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="plane_model">
+            <EntityTypeMapping TypeName="airportModel.plane_model">
+              <MappingFragment StoreEntitySet="plane_model">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="passenger_capacity" ColumnName="passenger_capacity" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="plane_repairs">
+            <EntityTypeMapping TypeName="airportModel.plane_repairs">
+              <MappingFragment StoreEntitySet="plane_repairs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="plane" ColumnName="plane" />
+                <ScalarProperty Name="scheduled_date" ColumnName="scheduled_date" />
+                <ScalarProperty Name="responsible" ColumnName="responsible" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="plane_repairs_ended">
+            <EntityTypeMapping TypeName="airportModel.plane_repairs_ended">
+              <MappingFragment StoreEntitySet="plane_repairs_ended">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="conclusion" ColumnName="conclusion" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="repair" ColumnName="repair" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="registration">
+            <EntityTypeMapping TypeName="airportModel.registration">
+              <MappingFragment StoreEntitySet="registration">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ticket" ColumnName="ticket" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sortie">
+            <EntityTypeMapping TypeName="airportModel.sortie">
+              <MappingFragment StoreEntitySet="sortie">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="flight" ColumnName="flight" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="delta_time" ColumnName="delta_time" />
+                <ScalarProperty Name="start" ColumnName="start" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ticket">
+            <EntityTypeMapping TypeName="airportModel.ticket">
+              <MappingFragment StoreEntitySet="ticket">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="flight" ColumnName="flight" />
+                <ScalarProperty Name="owner" ColumnName="owner" />
+                <ScalarProperty Name="place" ColumnName="place" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="brigade_list">
+            <EntityTypeMapping TypeName="airportModel.brigade_list">
+              <MappingFragment StoreEntitySet="brigade_list">
+                <ScalarProperty Name="brigade" ColumnName="brigade" />
+                <ScalarProperty Name="brigades" ColumnName="brigades" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="delayed_landings">
+            <EntityTypeMapping TypeName="airportModel.delayed_landings">
+              <MappingFragment StoreEntitySet="delayed_landings">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="flight" ColumnName="flight" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="delta_time" ColumnName="delta_time" />
+                <ScalarProperty Name="start" ColumnName="start" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employee_list">
+            <EntityTypeMapping TypeName="airportModel.employee_list">
+              <MappingFragment StoreEntitySet="employee_list">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="additional_phone" ColumnName="additional_phone" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="brigade" ColumnName="brigade" />
+                <ScalarProperty Name="airport" ColumnName="airport" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="childrencount" ColumnName="childrencount" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pilots_with_med_examination">
+            <EntityTypeMapping TypeName="airportModel.pilots_with_med_examination">
+              <MappingFragment StoreEntitySet="pilots_with_med_examination">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="additional_phone" ColumnName="additional_phone" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="number_of_flights" ColumnName="number_of_flights" />
+                <ScalarProperty Name="hours_in_flights" ColumnName="hours_in_flights" />
+                <ScalarProperty Name="hire_date" ColumnName="hire_date" />
+                <ScalarProperty Name="date_of_dismissal" ColumnName="date_of_dismissal" />
+                <ScalarProperty Name="city_of_residence" ColumnName="city_of_residence" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="last_medical_examination" ColumnName="last_medical_examination" />
+                <ScalarProperty Name="brigade" ColumnName="brigade" />
+                <ScalarProperty Name="airport" ColumnName="airport" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="childrencount" ColumnName="childrencount" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pilots_without_med_examination">
+            <EntityTypeMapping TypeName="airportModel.pilots_without_med_examination">
+              <MappingFragment StoreEntitySet="pilots_without_med_examination">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="additional_phone" ColumnName="additional_phone" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="number_of_flights" ColumnName="number_of_flights" />
+                <ScalarProperty Name="hours_in_flights" ColumnName="hours_in_flights" />
+                <ScalarProperty Name="hire_date" ColumnName="hire_date" />
+                <ScalarProperty Name="date_of_dismissal" ColumnName="date_of_dismissal" />
+                <ScalarProperty Name="city_of_residence" ColumnName="city_of_residence" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="last_medical_examination" ColumnName="last_medical_examination" />
+                <ScalarProperty Name="brigade" ColumnName="brigade" />
+                <ScalarProperty Name="airport" ColumnName="airport" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="childrencount" ColumnName="childrencount" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="plane_info">
+            <EntityTypeMapping TypeName="airportModel.plane_info">
+              <MappingFragment StoreEntitySet="plane_info">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="airline" ColumnName="airline" />
+                <ScalarProperty Name="passenger_capacity" ColumnName="passenger_capacity" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="last_repair" ColumnName="last_repair" />
+                <ScalarProperty Name="last_repair_conclusion" ColumnName="last_repair_conclusion" />
+                <ScalarProperty Name="last_inspection" ColumnName="last_inspection" />
+                <ScalarProperty Name="last_inspections_conclusion" ColumnName="last_inspections_conclusion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="planes">
+            <EntityTypeMapping TypeName="airportModel.planes">
+              <MappingFragment StoreEntitySet="planes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="airline" ColumnName="airline" />
+                <ScalarProperty Name="passenger_capacity" ColumnName="passenger_capacity" />
+                <ScalarProperty Name="model" ColumnName="model" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sorties_with_passengers">
+            <EntityTypeMapping TypeName="airportModel.sorties_with_passengers">
+              <MappingFragment StoreEntitySet="sorties_with_passengers">
+                <ScalarProperty Name="start" ColumnName="start" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="place" ColumnName="place" />
+                <ScalarProperty Name="baggages_count" ColumnName="baggages count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="flight_add" FunctionName="airportModel.Store.flight_add" />
+          <FunctionImportMapping FunctionImportName="flight_change_plane" FunctionName="airportModel.Store.flight_change_plane" />
+          <FunctionImportMapping FunctionImportName="flight_change_team" FunctionName="airportModel.Store.flight_change_team" />
+          <FunctionImportMapping FunctionImportName="flight_generate_next" FunctionName="airportModel.Store.flight_generate_next" />
+          <FunctionImportMapping FunctionImportName="flight_landing_do" FunctionName="airportModel.Store.flight_landing_do" />
+          <FunctionImportMapping FunctionImportName="flight_landing_move" FunctionName="airportModel.Store.flight_landing_move" />
+          <FunctionImportMapping FunctionImportName="flight_sortie_cancele" FunctionName="airportModel.Store.flight_sortie_cancele" />
+          <FunctionImportMapping FunctionImportName="flight_sortie_move" FunctionName="airportModel.Store.flight_sortie_move" />
+          <FunctionImportMapping FunctionImportName="plane_inspection_report" FunctionName="airportModel.Store.plane_inspection_report" />
+          <FunctionImportMapping FunctionImportName="flight_sortie_do" FunctionName="airportModel.Store.flight_sortie_do" />
+          <EntitySetMapping Name="department_view">
+            <EntityTypeMapping TypeName="airportModel.department_view">
+              <MappingFragment StoreEntitySet="department_view">
+                <ScalarProperty Name="brigades" ColumnName="brigades" />
+                <ScalarProperty Name="head_lastname" ColumnName="head_lastname" />
+                <ScalarProperty Name="head_name" ColumnName="head_name" />
+                <ScalarProperty Name="departnent_name" ColumnName="departnent_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="airline_statistics">
+            <EntityTypeMapping TypeName="airportModel.airline_statistics">
+              <MappingFragment StoreEntitySet="airline_statistics">
+                <ScalarProperty Name="avg_day_sortie_count" ColumnName="avg_day_sortie_count" />
+                <ScalarProperty Name="airline_name" ColumnName="airline_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="flight_class_stat">
+            <EntityTypeMapping TypeName="airportModel.flight_class_stat">
+              <MappingFragment StoreEntitySet="flight_class_stat">
+                <ScalarProperty Name="avg_delta_time" ColumnName="avg_delta_time" />
+                <ScalarProperty Name="avg_sortie_delta_time" ColumnName="avg_sortie_delta_time" />
+                <ScalarProperty Name="avg_free" ColumnName="avg_free" />
+                <ScalarProperty Name="avg_bought" ColumnName="avg_bought" />
+                <ScalarProperty Name="avg_passenger_capacity" ColumnName="avg_passenger_capacity" />
+                <ScalarProperty Name="team" ColumnName="team" />
+                <ScalarProperty Name="plane_model_name" ColumnName="plane_model_name" />
+                <ScalarProperty Name="plane_id" ColumnName="plane_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="flight_info">
+            <EntityTypeMapping TypeName="airportModel.flight_info">
+              <MappingFragment StoreEntitySet="flight_info">
+                <ScalarProperty Name="airline_name" ColumnName="airline_name" />
+                <ScalarProperty Name="premium_price" ColumnName="premium_price" />
+                <ScalarProperty Name="common_price" ColumnName="common_price" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="range" ColumnName="range" />
+                <ScalarProperty Name="travel_time" ColumnName="travel time" />
+                <ScalarProperty Name="time_of_departure" ColumnName="time of departure" />
+                <ScalarProperty Name="periodicity_type" ColumnName="periodicity_type" />
+                <ScalarProperty Name="to" ColumnName="to" />
+                <ScalarProperty Name="from" ColumnName="from" />
+                <ScalarProperty Name="flight_class" ColumnName="flight_class" />
+                <ScalarProperty Name="landing_delta_time" ColumnName="landing_delta_time" />
+                <ScalarProperty Name="landing_start" ColumnName="landing_start" />
+                <ScalarProperty Name="sortie_delta_time" ColumnName="sortie_delta_time" />
+                <ScalarProperty Name="sortie_start" ColumnName="sortie_start" />
+                <ScalarProperty Name="free" ColumnName="free" />
+                <ScalarProperty Name="bought" ColumnName="bought" />
+                <ScalarProperty Name="passenger_capacity" ColumnName="passenger_capacity" />
+                <ScalarProperty Name="team" ColumnName="team" />
+                <ScalarProperty Name="plane_model_name" ColumnName="plane_model_name" />
+                <ScalarProperty Name="plane_id" ColumnName="plane_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="flights_by_airline_in_day">
+            <EntityTypeMapping TypeName="airportModel.flights_by_airline_in_day">
+              <MappingFragment StoreEntitySet="flights_by_airline_in_day">
+                <ScalarProperty Name="sortie_count" ColumnName="sortie_count" />
+                <ScalarProperty Name="sortie" ColumnName="sortie" />
+                <ScalarProperty Name="airline_name" ColumnName="airline_name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sorties_in_month">
+            <EntityTypeMapping TypeName="airportModel.sorties_in_month">
+              <MappingFragment StoreEntitySet="sorties_in_month">
+                <ScalarProperty Name="landing_delta_time" ColumnName="landing_delta_time" />
+                <ScalarProperty Name="landing_start" ColumnName="landing_start" />
+                <ScalarProperty Name="sortie_delta_time" ColumnName="sortie_delta_time" />
+                <ScalarProperty Name="sortie_start" ColumnName="sortie_start" />
+                <ScalarProperty Name="free" ColumnName="free" />
+                <ScalarProperty Name="bought" ColumnName="bought" />
+                <ScalarProperty Name="passenger_capacity" ColumnName="passenger_capacity" />
+                <ScalarProperty Name="team" ColumnName="team" />
+                <ScalarProperty Name="plane_model_name" ColumnName="plane_model_name" />
+                <ScalarProperty Name="plane_id" ColumnName="plane_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
