@@ -73,9 +73,6 @@
                                 <li>@Html.ActionLink("List of brigades", "Index", "BrigadeListView")</li>
                                 <li>@Html.ActionLink("Departments", "Index", "DepartmentView")</li>
                                 <li>@Html.ActionLink("List of employee", "Index", "EmployeeListView")</li>
-                            
-                            @*<li>@Html.ActionLink("Airline Stats", "Index", "AirlineStats")</li>
-    <li>@Html.ActionLink("Flight Class Stats", "Index", "FlightClassStats")</li>*@
                             }
                             @if (un == "root")
                             {
@@ -85,7 +82,7 @@
                             {
                                 <li>@Html.ActionLink("Pilots with med examination", "Index", "PilotsWithMedicalExaminationView")</li>
                                 <li>@Html.ActionLink("Pilots without med examination", "Index", "PilotsWithoutMedicalExaminationView")</li>
-                                <li>@Html.ActionLink("Plane Info", "Index", "PlaneInfoView")</li>
+                                <li>@Html.ActionLink("Plane info", "Index", "PlaneInfoView")</li>
                             }
                             @if (un == "root" || un == "dispatcher" || un == "seller")
                             {
